@@ -13,11 +13,12 @@
 ## 📽️ Demo & Access
 Experience the Falah Browser ecosystem immediately:
 
-- **Live API Docs**: [http://192.168.0.17:4080/v1/docs](http://192.168.0.17:4080/v1/docs) (Deployment target)
-- **Demo Credentials**:
-  - **Username**: `falah_traveler`
-  - **Password**: `sabr_and_shukr_2026`
-- **Demo Instance**: Access our [Staging Environment](https://falah-browser-staging.netlify.app) (Frontend Preview).
+- **Live API Docs**: [http://192.168.0.17:4080/v1/docs](http://192.168.0.17:4080/v1/docs)
+- **Demo Access (Ummah ID)**:
+  - **ID**: `falah-tester-001@falah-os.com`
+  - **Passkey**: `salam-falah-2026`
+- **Official Manual**: [docs/user-manual.md](docs/user-manual.md)
+- **Download**: [v1.0.1 Releases](https://github.com/maifors/falah-browser/releases/tag/v1.0.1)
 
 ---
 
@@ -32,8 +33,8 @@ Experience the Falah Browser ecosystem immediately:
 ## 📖 User Guide
 
 ### 1. Installation
-- **macOS**: [Download FalahBrowser-1.0.0.dmg](https://github.com/maifors/falah-browser/releases/download/v1.0.0/Falah-Browser-1.0.0.dmg) and drag to `Applications`.
-- **Windows**: [Download FalahBrowser-Setup-1.0.0.exe](https://github.com/maifors/falah-browser/releases/download/v1.0.0/Falah-Browser-Setup-1.0.0.exe).
+- **macOS**: [Download FalahBrowser-1.0.1.dmg](https://github.com/maifors/falah-browser/releases/download/v1.0.1/FalahBrowser-1.0.1.dmg) and drag to `Applications`.
+- **Windows**: [Download FalahBrowser-Setup-1.0.1.exe](https://github.com/maifors/falah-browser/releases/download/v1.0.1/FalahBrowser-Setup-1.0.1.exe).
 - **Linux**: Build from source using the steps below.
 
 ### 2. Initial Setup

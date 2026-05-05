@@ -1,7 +1,13 @@
 {
   "name": "desktop",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "A sovereign, secure browser for the Ummah.",
+  "author": "Maifors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maifors/falah-browser.git"
+  },
   "type": "module",
   "main": "main.cjs",
   "scripts": {
@@ -31,12 +37,12 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.32",
     "sucrase": "^3.35.1",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.2.4",
     "vite": "^5.0.0"
   },
   "build": {
     "appId": "com.falah.browser",
-    "productName": "Falah Browser",
+    "productName": "FalahBrowser",
     "files": [
       "dist/**/*",
       "main.cjs",
@@ -46,15 +52,18 @@
     ],
     "mac": {
       "target": "dmg",
-      "icon": "public/lantern.png"
+      "icon": "public/lantern.png",
+      "artifactName": "${productName}-${version}.${ext}"
     },
     "win": {
       "target": "nsis",
-      "icon": "public/lantern.png"
+      "icon": "public/lantern.png",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "public/lantern.png"
+      "icon": "public/lantern.png",
+      "artifactName": "${productName}-${version}.${ext}"
     }
   }
 }
