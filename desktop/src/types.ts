@@ -1,8 +1,8 @@
 export type VerdictType = 'safe' | 'caution' | 'warning' | 'blocked';
 
 export interface Alternative {
-  title: str;
-  url: str;
+  title: string;
+  url: string;
 }
 
 export interface ClassificationResult {
@@ -21,7 +21,6 @@ export interface Tab {
 
 export interface FalahAPI {
   classifyPage: (url: string, text: string) => Promise<ClassificationResult>;
-  // Add other API methods here as they are defined
 }
 
 declare global {

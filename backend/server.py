@@ -61,12 +61,12 @@ RULES: List[Dict] = [
 
 @app.get("/v1/health", response_model=HealthResponse)
 async def health_check() -> HealthResponse:
-    """Returns the health status of the classification engine."""
+    \"\"\"Returns the health status of the classification engine.\"\"\"
     return HealthResponse(status="ok", version="1.0.0")
 
 @app.post("/v1/classify", response_model=ClassificationResponse)
 async def classify(request: ClassificationRequest) -> ClassificationResponse:
-    """Analyzes text content for Shariah compliance."""
+    \"\"\"Analyzes text content for Shariah compliance.\"\"\"
     text_content = request.text.lower()
     
     for rule in RULES:
@@ -85,6 +85,5 @@ async def classify(request: ClassificationRequest) -> ClassificationResponse:
         alternatives=[]
     )
 
-if __name__ == "__main__":
-    uvicorn.run("server:app", host="127.0.0.1", port=8000, reload=True)
-
+if __name__ == \"__main__\":
+    uvicorn.run(\"server:app\", host=\"0.0.0.0\", port=8000, reload=False)

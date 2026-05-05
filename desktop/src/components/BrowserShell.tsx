@@ -69,7 +69,7 @@ const BrowserShell: React.FC = () => {
 
         <button 
           onClick={() => setIsPanelOpen(!isPanelOpen)}
-          className={`p-1 rounded-full transition-all duration-500 ${
+          className={`p-1 rounded-full transition-all duration-500 \${
             currentVerdict?.verdict === 'warning' ? 'shadow-[0_0_15px_#d4af37]' : 
             currentVerdict?.verdict === 'blocked' ? 'shadow-[0_0_15px_#ef4444]' : ''
           }`}
@@ -84,12 +84,12 @@ const BrowserShell: React.FC = () => {
           <div 
             key={tab.id}
             onClick={() => setActiveTabId(tab.id)}
-            className={`px-4 py-2 text-sm cursor-pointer border-r border-gray-800 min-w-[150px] flex justify-between items-center ${
+            className={`px-4 py-2 text-sm cursor-pointer border-r border-gray-800 min-w-[150px] flex justify-between items-center \${
               tab.id === activeTabId ? 'bg-falah-indigo border-t-2 border-t-falah-gold' : 'hover:bg-gray-800'
             }`}
           >
             <span className="truncate">{tab.url}</span>
-            <div className={`w-2 h-2 rounded-full ${
+            <div className={`w-2 h-2 rounded-full \${
               tab.verdict === 'safe' ? 'bg-green-500' : 
               tab.verdict === 'caution' ? 'bg-yellow-500' : 'bg-red-500'
             }`} />
