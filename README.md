@@ -32,8 +32,8 @@ Experience the Falah Browser ecosystem immediately:
 ## 📖 User Guide
 
 ### 1. Installation
-- **macOS**: Download `FalahBrowser-1.0.0.dmg` and drag to `Applications`.
-- **Windows**: Run `FalahBrowser-Setup-1.0.0.exe`.
+- **macOS**: [Download FalahBrowser-1.0.0.dmg](https://github.com/maifors/falah-browser/releases/download/v1.0.0/Falah-Browser-1.0.0.dmg) and drag to `Applications`.
+- **Windows**: [Download FalahBrowser-Setup-1.0.0.exe](https://github.com/maifors/falah-browser/releases/download/v1.0.0/Falah-Browser-Setup-1.0.0.exe).
 - **Linux**: Build from source using the steps below.
 
 ### 2. Initial Setup

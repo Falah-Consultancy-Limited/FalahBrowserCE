@@ -2,13 +2,11 @@ name: Build & Release Falah Browser
 
 on:
   push:
-    branches:
-      - full-browser
     tags:
       - 'v*'
 
 jobs:
-  build:
+  release:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -33,7 +31,7 @@ jobs:
       - name: Build React
         run: |
           cd desktop
-          npm run build
+          ./node_modules/.bin/vite build
 
       - name: Package Electron
         run: |
@@ -42,8 +40,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Create Release & Upload Assets
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: falah-browser-${{ matrix.os }}
-          path: desktop/dist/*.{dmg,exe,zip,AppImage}
+          files: |
+            desktop/dist/*.dmg
+            desktop/dist/*.exe
+            desktop/dist/*.zip
+            desktop/dist/*.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
