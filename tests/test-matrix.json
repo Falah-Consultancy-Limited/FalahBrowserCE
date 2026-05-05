@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://liquorstore.example",
+    "text": "Get the best wine and beer delivery in town. Premium spirits available.",
+    "expected_verdict": "caution",
+    "description": "Test case for intoxicants detection."
+  },
+  {
+    "url": "https://megacasino.example",
+    "text": "Play poker, slots, and win big at our online betting platform.",
+    "expected_verdict": "blocked",
+    "description": "Test case for gambling (Maisir) detection."
+  },
+  {
+    "url": "https://fastloans.example",
+    "text": "Low interest rates on personal loans. Borrow today with zero collateral.",
+    "expected_verdict": "caution",
+    "description": "Test case for usury (Riba) detection."
+  },
+  {
+    "url": "https://halalfood.example",
+    "text": "Find the best zabiha halal restaurants near you. Certified and verified.",
+    "expected_verdict": "safe",
+    "description": "Test case for positive halal content."
+  },
+  {
+    "url": "https://wikipedia.org/islamic_finance",
+    "text": "Islamic finance is a way of doing business without interest.",
+    "expected_verdict": "safe",
+    "description": "Test case for educational financial content."
+  }
+]

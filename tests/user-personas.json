@@ -1,0 +1,23 @@
+[
+  {
+    "id": "persona_merchant",
+    "name": "The Ethical Merchant",
+    "description": "A business owner looking for Shariah-compliant wholesale suppliers and ethical banking solutions.",
+    "objectives": ["Find Riba-free loans", "Verify supplier halal certification", "Manage business zakat"],
+    "behavior": "High interaction with financial sites, looks for certificates/badges."
+  },
+  {
+    "id": "persona_student",
+    "name": "The Knowledge Seeker",
+    "description": "A university student researching Islamic history and finance.",
+    "objectives": ["Access academic journals", "Verify historical sources", "Avoid distracting or prohibited content"],
+    "behavior": "Extensive searching, multiple tabs open, deep reading."
+  },
+  {
+    "id": "persona_family",
+    "name": "The Protective Parent",
+    "description": "A parent setting up a safe browsing environment for their children.",
+    "objectives": ["Block harmful entertainment", "Safe educational videos", "Halal gaming alternatives"],
+    "behavior": "Strict settings, relies on automated blocking, reviews history."
+  }
+]

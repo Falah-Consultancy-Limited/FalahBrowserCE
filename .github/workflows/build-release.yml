@@ -1,0 +1,49 @@
+name: Build & Release Falah Browser
+
+on:
+  push:
+    branches:
+      - full-browser
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'desktop/package-lock.json'
+
+      - name: Install dependencies
+        run: |
+          cd desktop
+          npm install
+
+      - name: Build React
+        run: |
+          cd desktop
+          npm run build
+
+      - name: Package Electron
+        run: |
+          cd desktop
+          npm run build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: falah-browser-${{ matrix.os }}
+          path: desktop/dist/*.{dmg,exe,zip,AppImage}
