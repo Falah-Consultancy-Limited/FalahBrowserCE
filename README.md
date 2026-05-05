@@ -1,60 +1,59 @@
-# 🌙 Falah Browser
+# 🏮 Falah Browser 
 ### *Your Spiritual Lantern in the Digital World*
 
-![Falah Browser Lantern](https://raw.githubusercontent.com/maifors/falah-browser/full-browser/desktop/public/lantern.png)
+[![Sovereignty: Guaranteed](https://img.shields.io/badge/Sovereignty-Guaranteed-gold)](docs/system-design.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](https://opensource.org/licenses/MIT)
+[![Factory: Full--Lifecycle](https://img.shields.io/badge/Factory-Full--Lifecycle-blue)](.antigravity/workflows/)
+[![Classification: Shariah--Compliant](https://img.shields.io/badge/Classification-Shariah--Compliant-green)](backend/api-contract.md)
 
-**Falah Browser** is a standalone, privacy-first desktop web browser (macOS, Windows, Linux) integrated with a Shariah guidance AI and a spiritual companion. It gently guides you toward content aligned with Islamic principles, reminds you of prayer times, and provides a calm space for daily reflection.
-
----
-
-## ✨ Key Features
-
-- **🛡️ AI Shariah Guidance**: Real-time page classification that whispers gentle reminders when content may not align with Islamic values.
-- **🏮 Lantern Home (New Tab)**: A beautiful centerpiece featuring an animated lantern compass, daily Quranic verses/Hadiths, and a Sunnah checklist.
-- **🕌 Prayer Reminders**: Never miss a prayer with automatic notifications and a live countdown based on your location.
-- **🧘 Reflection Mode**: A dedicated, private space to reflect on your digital habits and purify your heart.
-- **📿 Sunnah Checklist**: Track your daily Dhikr, Quran reading, and Sadaqah within your browser.
+**Falah Browser** is a standalone, privacy-first desktop web browser integrated with a Shariah guidance AI. It gently guides users toward content aligned with Islamic principles while ensuring absolute data sovereignty through a local-first, encrypted architecture.
 
 ---
 
-## 🏗️ System Requirements
-- **macOS**: 11.0 (Big Sur) or later.
-- **Windows**: Windows 10 or 11.
-- **Python**: 3.9 or later (for local sidecar mode).
-- **Node.js**: 18.x or later.
+## 📽️ Demo & Access
+Experience the Falah Browser ecosystem immediately:
+
+- **Live API Docs**: [http://192.168.0.17:4080/v1/docs](http://192.168.0.17:4080/v1/docs) (Deployment target)
+- **Demo Credentials**:
+  - **Username**: `falah_traveler`
+  - **Password**: `sabr_and_shukr_2026`
+- **Demo Instance**: Access our [Staging Environment](https://falah-browser-staging.netlify.app) (Frontend Preview).
 
 ---
 
-## 📥 Installation & Setup
-
-### 1. Download & Install
-- **macOS**: Download `FalahBrowser-1.0.0.dmg`. Drag **Falah Browser** to your `Applications` folder.
-- **Windows**: Download `FalahBrowser-Setup-1.0.0.exe`. Follow the installation wizard.
-
-### 2. Configure Your Spiritual Direction
-1. Launch the browser.
-2. Click the **Lantern Icon** in the toolbar.
-3. Open **Settings** and set your **City** and **Country** for accurate prayer times.
-4. Enable **Spiritual Reminders** to receive notifications.
-
-### 3. Backend Setup (Local AI)
-Falah uses a local sidecar process for maximum privacy:
-```bash
-cd backend
-pip install -r requirements.txt
-```
-*The app will automatically spawn the AI server on launch.*
+## ✨ Core Pillars
+- **🛡️ AI Shariah Guidance**: Real-time page classification using our [Sovereign Engine](backend/server.py).
+- **🏮 Lantern Home**: A beautiful centerpiece featuring daily Quranic inspiration and a Sunnah checklist.
+- **🕌 Prayer Ecosystem**: Automatic notifications and countdowns integrated into the browser toolbar.
+- **🔐 Absolute Sovereignty**: Zero tracking. Zero cloud sync. Your data is encrypted locally with keys only you hold.
 
 ---
 
-## 🌐 Remote AI Option
-Prefer a cloud-based experience? You can connect to our hosted AI on Netlify:
-- **URL**: `https://falah-api.netlify.app/classify`
-- Update this in **Settings > Advanced > Backend URL**.
+## 📖 User Guide
+
+### 1. Installation
+- **macOS**: Download `FalahBrowser-1.0.0.dmg` and drag to `Applications`.
+- **Windows**: Run `FalahBrowser-Setup-1.0.0.exe`.
+- **Linux**: Build from source using the steps below.
+
+### 2. Initial Setup
+1. **Connect Ummah ID**: Upon first launch, link your [Ummah ID](https://id.falah-os.com) to enable personalized spiritual goals.
+2. **Set Location**: Open `Settings > General` to configure your city for accurate prayer times.
+3. **Choose Guidance Level**:
+   - **Strict**: Automatic blocking of prohibited content.
+   - **Gentle**: Visual reminders and ethical alternatives (Whisper Panel).
 
 ---
 
-## 🛠️ For Developers
+## 🛠️ Developer & Factory Governance
+This project is built using the **Antigravity Full-Lifecycle Production Factory** model.
+
+### Governance Rule Sets
+- [01-Architect](.antigravity/workflows/01-architect.md): System Design & API Contracts.
+- [02-Developer](.antigravity/workflows/02-developer.md): Strict Typing & Modular Code.
+- [03-QA-Security](.antigravity/workflows/03-qa-security.md): Testing & OWASP Compliance.
+- [04-DevOps](.antigravity/workflows/04-devops.md): Infrastructure & Deployment.
+- [05-Post-Deploy](.antigravity/workflows/05-post-deploy.md): Validation & Link Health.
 
 ### Building from Source
 ```bash
@@ -62,24 +61,16 @@ Prefer a cloud-based experience? You can connect to our hosted AI on Netlify:
 git clone https://github.com/maifors/falah-browser.git
 cd falah-browser/desktop
 
-# Install dependencies
+# Install & Run
 npm install
-
-# Run in development mode
 npm run dev
-
-# Build production binaries (.dmg, .exe)
-npm run build
 ```
 
 ---
 
-## 🤲 Contribution
-Falah is an open-source project dedicated to the Ummah. We welcome contributions, bug reports, and suggestions for improving our guidance AI.
+## 🤝 Contribution & Sovereignty
+Falah is dedicated to the Ummah. We believe in **Data Sovereignty** as a fundamental right. 
+- [System Architecture](docs/system-design.md)
+- [Data Sovereignty Model](docs/data-model.md)
 
 *"May this tool be a lantern on your path to success (Falah)."*
-
----
-
-## 📄 License
-This project is licensed under the MIT License.

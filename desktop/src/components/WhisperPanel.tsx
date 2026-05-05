@@ -22,16 +22,16 @@ const WhisperPanel: React.FC<WhisperPanelProps> = ({ isOpen, onClose, verdict })
   const style = getStyle();
 
   return (
-    <div className={`fixed right-0 top-0 bottom-0 w-[350px] bg-falah-indigo/95 backdrop-blur-md border-l border-gray-800 shadow-2xl transition-transform duration-500 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 flex flex-col`}>
+    <div className={`fixed right-0 top-0 bottom-0 w-[350px] bg-falah-indigo/95 backdrop-blur-md border-l border-gray-800 shadow-2xl transition-transform duration-500 transform \${isOpen ? 'translate-x-0' : 'translate-x-full'} z-50 flex flex-col`}>
       <div className="p-6 overflow-y-auto flex-1">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-xl font-serif font-bold text-falah-gold">Falah's Whisper</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-white">✕</button>
         </div>
 
-        <div className={`p-6 rounded-2xl border ${style.border} ${style.bg} mb-8`}>
-          <div className="text-4xl mb-4">{style.icon}</div>
-          <p className={`text-lg font-bold ${style.text} mb-2`}>
+        <div className={`p-6 rounded-2xl border \${style.border} \${style.bg} mb-8`}>
+          <div className="text-4xl mb-4">\${style.icon}</div>
+          <p className={`text-lg font-bold \${style.text} mb-2`}>
             {verdict.verdict === 'safe' ? 'Peace be upon you' : 'A gentle reminder'}
           </p>
           <p className="text-sm opacity-90 leading-relaxed">
