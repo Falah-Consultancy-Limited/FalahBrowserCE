@@ -10,45 +10,21 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 # ── System dependencies ──────────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    # Core utils
     curl wget ca-certificates gnupg \
-    # X11 virtual display
-    xvfb \
-    # VNC server
-    x11vnc \
-    # Minimal window manager
-    openbox \
-    # noVNC web client + websockify proxy
+    # X11 virtual display + window manager
+    xvfb x11vnc openbox \
+    # noVNC (web VNC client) + websockify proxy
     novnc websockify \
-    # Electron / Chromium runtime
-    libgtk-3-0 \
-    libnotify4 \
-    libnss3 \
-    libxss1 \
-    libxtst6 \
-    libatspi2.0-0 \
-    libdrm2 \
-    libgbm1 \
-    libasound2 \
-    libx11-xcb1 \
-    libxcb-dri3-0 \
-    libxcomposite1 \
-    libxcursor1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxi6 \
-    libxrandr2 \
-    libxrender1 \
-    libx11-6 \
-    libxext6 \
-    libxkbcommon0 \
-    # Dbus (required by Electron)
+    # Electron / Chromium runtime libraries
+    libgtk-3-0 libnotify4 libnss3 libxss1 libxtst6 \
+    libatspi2.0-0 libdrm2 libgbm1 libasound2 \
+    libx11-xcb1 libxcb-dri3-0 libxcomposite1 libxcursor1 \
+    libxdamage1 libxfixes3 libxi6 libxrandr2 libxrender1 \
+    libx11-6 libxext6 libxkbcommon0 \
+    # D-Bus (Electron tray + notifications)
     dbus dbus-x11 \
-    # Arabic + Unicode fonts
-    fonts-noto \
-    fonts-noto-arabic \
-    fonts-noto-color-emoji \
-    # Python3 (backend health-check)
+    # Fonts — noto covers Arabic, emoji, and Latin
+    fonts-noto-core fonts-noto-color-emoji \
     python3 \
     && rm -rf /var/lib/apt/lists/*
 
@@ -68,7 +44,7 @@ COPY desktop/ ./
 # Build React/Vite frontend into dist/
 RUN npx vite build
 
-# ── noVNC custom index ────────────────────────────────────────────
+# ── noVNC custom landing page ─────────────────────────────────────
 COPY docker/desktop/index.html /usr/share/novnc/index.html
 
 # ── Startup ──────────────────────────────────────────────────────
@@ -77,7 +53,7 @@ RUN chmod +x /start.sh
 
 EXPOSE 5900 6080
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=20s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
     CMD curl -f http://localhost:6080/ || exit 1
 
 CMD ["/start.sh"]
