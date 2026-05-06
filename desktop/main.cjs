@@ -5,6 +5,7 @@ const Store = require('electron-store');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const store = new Store();
+const BACKEND_URL = process.env.BACKEND_URL || 'http://127.0.0.1:8000';
 let mainWindow;
 let tray;
 let pythonProcess;
@@ -132,7 +133,7 @@ ipcMain.handle('update-spiritual-act', (event, { act, value }) => {
 
 ipcMain.handle('classify-page', async (event, { url, text }) => {
   try {
-    const response = await fetch('http://127.0.0.1:8000/classify', {
+    const response = await fetch(`${BACKEND_URL}/v1/classify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url, text })

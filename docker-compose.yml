@@ -1,24 +1,71 @@
 version: '3.8'
 
+# ══════════════════════════════════════════════════════
+#  Falah Browser — Full Container Stack
+#  Access UI → http://<host>:6080/vnc.html
+# ══════════════════════════════════════════════════════
+
 services:
-  classification-engine:
+
+  # ── Shariah Classification Engine (FastAPI) ──────────
+  falah-backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: falah-browser-backend
-    ports:
-      - "8000:8000"
-    environment:
-      - NODE_ENV=production
+    image: falah-backend:latest
+    container_name: falah-backend
     restart: unless-stopped
+    networks:
+      - falah-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/v1/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 15s
+    labels:
+      - "com.falah.service=backend"
+      - "com.falah.description=Shariah classification engine"
+
+  # ── Desktop Browser (Electron + noVNC) ──────────────
+  falah-desktop:
+    build:
+      context: .
+      dockerfile: docker/desktop/Dockerfile
+    image: falah-desktop:latest
+    container_name: falah-desktop
+    depends_on:
+      falah-backend:
+        condition: service_healthy
+    environment:
+      - DISPLAY=:99
+      - SCREEN_WIDTH=1280
+      - SCREEN_HEIGHT=800
+      - SCREEN_DEPTH=24
+      - BACKEND_URL=http://falah-backend:8000
+      - VNC_PASSWORD=${VNC_PASSWORD:-falah123}
+    ports:
+      - "${NOVNC_PORT:-6080}:6080"
+      - "${VNC_PORT:-5900}:5900"
+    # Shared memory — Chromium/Electron needs this
+    shm_size: '512mb'
+    # Allow Electron to use software rendering fallback
+    security_opt:
+      - seccomp:unconfined
+    restart: unless-stopped
+    networks:
+      - falah-network
+    volumes:
+      - falah-userdata:/root/.config/falah-browser
+    labels:
+      - "com.falah.service=desktop"
+      - "com.falah.description=Electron browser via noVNC"
 
 networks:
-  default:
+  falah-network:
     name: falah-network
-    external: true
+    driver: bridge
+
+volumes:
+  falah-userdata:
+    name: falah-userdata

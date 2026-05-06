@@ -1,0 +1,21 @@
+# Node modules — installed inside container
+desktop/node_modules
+desktop/dist
+desktop/release
+
+# Git
+.git
+.gitignore
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Dev files
+desktop/src/**/*.test.*
+*.log
+
+# Docs (not needed in image)
+docs/
+*.md
+!README.md
