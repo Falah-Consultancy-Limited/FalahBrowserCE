@@ -1,0 +1,246 @@
+build (macos-latest)	Set up job	﻿2026-05-05T12:23:56.0563930Z Current runner version: '2.334.0'
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0579100Z ##[group]Runner Image Provisioner
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0579590Z Hosted Compute Agent
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0579950Z Version: 20260422.526
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0580340Z Commit: e1a9e573f4d0838b3a7c1b07401aeb29ed3635a9
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0580780Z Build Date: 2026-04-22T09:31:31Z
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0581200Z Worker ID: {616c7af5-d58f-485b-a42b-3c39ae6f9cef}
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0581640Z Azure Region: westus
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0581980Z ##[endgroup]
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0582770Z ##[group]Operating System
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0583140Z macOS
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0583430Z 15.7.4
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0583710Z 24G517
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0584010Z ##[endgroup]
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0584320Z ##[group]Runner Image
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0584660Z Image: macos-15-arm64
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0584970Z Version: 20260427.0018.1
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0585640Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260427.0018/images/macos/macos-15-arm64-Readme.md
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0586650Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260427.0018
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0587240Z ##[endgroup]
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0587900Z ##[group]GITHUB_TOKEN Permissions
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0588810Z Contents: read
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0589120Z Metadata: read
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0589410Z Packages: read
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0589710Z ##[endgroup]
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0591220Z Secret source: Actions
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0591620Z Prepare workflow directory
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0811330Z Prepare all required actions
+build (macos-latest)	Set up job	2026-05-05T12:23:56.0839650Z Getting action download info
+build (macos-latest)	Set up job	2026-05-05T12:23:56.6108160Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build (macos-latest)	Set up job	2026-05-05T12:23:56.8354680Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+build (macos-latest)	Set up job	2026-05-05T12:23:56.9302970Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+build (macos-latest)	Set up job	2026-05-05T12:23:57.1282340Z Complete job name: build (macos-latest)
+build (macos-latest)	Checkout	﻿2026-05-05T12:23:57.1823710Z ##[group]Run actions/checkout@v4
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1824680Z with:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1824990Z   repository: maifors/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1825640Z   token: ***
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1825920Z   ssh-strict: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1826200Z   ssh-user: git
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1826490Z   persist-credentials: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1826820Z   clean: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1827120Z   sparse-checkout-cone-mode: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1827470Z   fetch-depth: 1
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1827770Z   fetch-tags: false
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1828070Z   show-progress: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1828400Z   lfs: false
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1828670Z   submodules: false
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1828980Z   set-safe-directory: true
+build (macos-latest)	Checkout	2026-05-05T12:23:57.1829500Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:57.4894810Z Syncing repository: maifors/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:57.4897450Z ##[group]Getting Git version info
+build (macos-latest)	Checkout	2026-05-05T12:23:57.4898190Z Working directory is '/Users/runner/work/falah-browser/falah-browser'
+build (macos-latest)	Checkout	2026-05-05T12:23:57.4899210Z [command]/opt/homebrew/bin/git version
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5476970Z git version 2.54.0
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5511430Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5524530Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/a39f4d6f-f3b9-4ebd-872a-9c8e4d607ca0/.gitconfig'
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5536760Z Temporarily overriding HOME='/Users/runner/work/_temp/a39f4d6f-f3b9-4ebd-872a-9c8e4d607ca0' before making global git config changes
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5538620Z Adding repository directory to the temporary git global config as a safe directory
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5542640Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/falah-browser/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5678420Z Deleting the contents of '/Users/runner/work/falah-browser/falah-browser'
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5682160Z ##[group]Initializing the repository
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5686610Z [command]/opt/homebrew/bin/git init /Users/runner/work/falah-browser/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5911300Z hint: Using 'master' as the name for the initial branch. This default branch name
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5912300Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5913120Z hint: to use in all of your new repositories, which will suppress this warning,
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5913840Z hint: call:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5914170Z hint:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5914610Z hint: 	git config --global init.defaultBranch <name>
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5915110Z hint:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5915560Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5916280Z hint: 'development'. The just-created branch can be renamed via this command:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5916880Z hint:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5917220Z hint: 	git branch -m <name>
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5917610Z hint:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5918130Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5918980Z Initialized empty Git repository in /Users/runner/work/falah-browser/falah-browser/.git/
+build (macos-latest)	Checkout	2026-05-05T12:23:57.5921410Z [command]/opt/homebrew/bin/git remote add origin https://github.com/maifors/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6006570Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6008630Z ##[group]Disabling automatic garbage collection
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6010280Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6074890Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6076510Z ##[group]Setting up auth
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6081550Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (macos-latest)	Checkout	2026-05-05T12:23:57.6156050Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (macos-latest)	Checkout	2026-05-05T12:23:57.7138240Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (macos-latest)	Checkout	2026-05-05T12:23:57.7206140Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (macos-latest)	Checkout	2026-05-05T12:23:57.7885860Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (macos-latest)	Checkout	2026-05-05T12:23:57.7955630Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (macos-latest)	Checkout	2026-05-05T12:23:57.9135090Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build (macos-latest)	Checkout	2026-05-05T12:23:57.9400740Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:57.9473640Z ##[group]Fetching the repository
+build (macos-latest)	Checkout	2026-05-05T12:23:57.9477130Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a0e28a2b388d585ab771b2a1a821165ece8dbb9b:refs/tags/v1.0.0
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5171920Z From https://github.com/maifors/falah-browser
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5174590Z  * [new ref]         a0e28a2b388d585ab771b2a1a821165ece8dbb9b -> v1.0.0
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5268700Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5269890Z ##[group]Determining the checkout info
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5271600Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5278320Z [command]/opt/homebrew/bin/git sparse-checkout disable
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5480890Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5809490Z ##[group]Checking out the ref
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5811040Z [command]/opt/homebrew/bin/git checkout --progress --force refs/tags/v1.0.0
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5927530Z HEAD is now at a0e28a2 docs: professionalize README and complete TSX migration sync
+build (macos-latest)	Checkout	2026-05-05T12:23:58.5938210Z ##[endgroup]
+build (macos-latest)	Checkout	2026-05-05T12:23:58.6008400Z [command]/opt/homebrew/bin/git log -1 --format=%H
+build (macos-latest)	Checkout	2026-05-05T12:23:58.6065680Z a0e28a2b388d585ab771b2a1a821165ece8dbb9b
+build (macos-latest)	Setup Node.js	﻿2026-05-05T12:23:58.6284570Z ##[group]Run actions/setup-node@v4
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6285600Z with:
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6286140Z   node-version: 20
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6286750Z   cache: npm
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6287430Z   cache-dependency-path: desktop/package-lock.json
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6288330Z   always-auth: false
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6288960Z   check-latest: false
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6289780Z   token: ***
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.6290340Z ##[endgroup]
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.7857370Z Found in cache @ /Users/runner/hostedtoolcache/node/20.20.2/arm64
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:58.7860500Z ##[group]Environment details
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.5243700Z node: v20.20.2
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.5244570Z npm: 10.8.2
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.5245060Z yarn: 1.22.22
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.5246280Z ##[endgroup]
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.5263290Z [command]/Users/runner/hostedtoolcache/node/20.20.2/arm64/bin/npm config get cache
+build (macos-latest)	Setup Node.js	2026-05-05T12:23:59.8298480Z /Users/runner/.npm
+build (macos-latest)	Setup Node.js	2026-05-05T12:24:00.1796760Z npm cache is not found
+build (macos-latest)	Install dependencies	﻿2026-05-05T12:24:00.1910250Z ##[group]Run cd desktop
+build (macos-latest)	Install dependencies	2026-05-05T12:24:00.1910620Z ^[[36;1mcd desktop^[[0m
+build (macos-latest)	Install dependencies	2026-05-05T12:24:00.1910890Z ^[[36;1mnpm install^[[0m
+build (macos-latest)	Install dependencies	2026-05-05T12:24:00.1957560Z shell: /bin/bash -e {0}
+build (macos-latest)	Install dependencies	2026-05-05T12:24:00.1957820Z ##[endgroup]
+build (macos-latest)	Install dependencies	2026-05-05T12:24:02.2736710Z npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+build (macos-latest)	Install dependencies	2026-05-05T12:24:02.6266420Z npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+build (macos-latest)	Install dependencies	2026-05-05T12:24:02.6469790Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+build (macos-latest)	Install dependencies	2026-05-05T12:24:03.2637320Z npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+build (macos-latest)	Install dependencies	2026-05-05T12:24:03.5431100Z npm warn deprecated boolean@3.2.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+build (macos-latest)	Install dependencies	2026-05-05T12:24:03.5541850Z npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+build (macos-latest)	Install dependencies	2026-05-05T12:24:03.6062270Z npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+build (macos-latest)	Install dependencies	2026-05-05T12:24:03.6376840Z npm warn deprecated tar@6.2.1: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+build (macos-latest)	Install dependencies	2026-05-05T12:24:04.4073030Z npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+build (macos-latest)	Install dependencies	2026-05-05T12:24:05.9703820Z npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.2848780Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.2850960Z added 558 packages, and audited 559 packages in 13s
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.2851330Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.2851480Z 107 packages are looking for funding
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.2852310Z   run `npm fund` for details
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3798770Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3811990Z 12 vulnerabilities (4 low, 2 moderate, 6 high)
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3825110Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3865410Z To address issues that do not require attention, run:
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3885200Z   npm audit fix
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3885650Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3886150Z To address all issues (including breaking changes), run:
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3886900Z   npm audit fix --force
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3887300Z 
+build (macos-latest)	Install dependencies	2026-05-05T12:24:13.3887710Z Run `npm audit` for details.
+build (macos-latest)	Build React	﻿2026-05-05T12:24:13.4179090Z ##[group]Run cd desktop
+build (macos-latest)	Build React	2026-05-05T12:24:13.4179420Z ^[[36;1mcd desktop^[[0m
+build (macos-latest)	Build React	2026-05-05T12:24:13.4179690Z ^[[36;1mnpm run build^[[0m
+build (macos-latest)	Build React	2026-05-05T12:24:13.4331430Z shell: /bin/bash -e {0}
+build (macos-latest)	Build React	2026-05-05T12:24:13.4332610Z ##[endgroup]
+build (macos-latest)	Build React	2026-05-05T12:24:13.8078070Z 
+build (macos-latest)	Build React	2026-05-05T12:24:13.8079270Z > desktop@0.0.0 build
+build (macos-latest)	Build React	2026-05-05T12:24:13.8080550Z > vite build && electron-builder
+build (macos-latest)	Build React	2026-05-05T12:24:13.8082070Z 
+build (macos-latest)	Build React	2026-05-05T12:24:14.1084630Z ^[[36mvite v5.4.21 ^[[32mbuilding for production...^[[36m^[[39m
+build (macos-latest)	Build React	2026-05-05T12:24:14.6918330Z transforming...
+build (macos-latest)	Build React	2026-05-05T12:24:15.3392520Z ^[[32m✓^[[39m 39 modules transformed.
+build (macos-latest)	Build React	2026-05-05T12:24:15.4258600Z rendering chunks...
+build (macos-latest)	Build React	2026-05-05T12:24:15.4293160Z computing gzip size...
+build (macos-latest)	Build React	2026-05-05T12:24:15.4346770Z ^[[2mdist/^[[22m^[[32mindex.html                 ^[[39m^[[1m^[[2m  0.46 kB^[[22m^[[1m^[[22m^[[2m │ gzip:  0.30 kB^[[22m
+build (macos-latest)	Build React	2026-05-05T12:24:15.4348000Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[35mindex-aXipkn9D.css  ^[[39m^[[1m^[[2m 17.99 kB^[[22m^[[1m^[[22m^[[2m │ gzip:  3.99 kB^[[22m
+build (macos-latest)	Build React	2026-05-05T12:24:15.4349970Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[36mindex-6XV6cVK6.js   ^[[39m^[[1m^[[2m178.96 kB^[[22m^[[1m^[[22m^[[2m │ gzip: 57.75 kB^[[22m
+build (macos-latest)	Build React	2026-05-05T12:24:15.4352180Z ^[[32m✓ built in 761ms^[[39m
+build (macos-latest)	Build React	2026-05-05T12:24:15.9827460Z   • electron-builder  version=24.13.3 os=24.6.0
+build (macos-latest)	Build React	2026-05-05T12:24:15.9828240Z   • artifacts will be published  reason=tag is defined tag=v1.0.0
+build (macos-latest)	Build React	2026-05-05T12:24:15.9855490Z   • loaded configuration  file=package.json ("build" field)
+build (macos-latest)	Build React	2026-05-05T12:24:15.9861490Z   • description is missed in the package.json  appPackageFile=/Users/runner/work/falah-browser/falah-browser/desktop/package.json
+build (macos-latest)	Build React	2026-05-05T12:24:15.9864240Z   • author is missed in the package.json  appPackageFile=/Users/runner/work/falah-browser/falah-browser/desktop/package.json
+build (macos-latest)	Build React	2026-05-05T12:24:16.2619120Z   • packaging       platform=darwin arch=arm64 electron=28.3.3 appOutDir=dist/mac-arm64
+build (macos-latest)	Build React	2026-05-05T12:24:16.4478900Z   • downloading     url=https://github.com/electron/electron/releases/download/v28.3.3/electron-v28.3.3-darwin-arm64.zip size=95 MB parts=6
+build (macos-latest)	Build React	2026-05-05T12:24:16.7702780Z   • downloaded      url=https://github.com/electron/electron/releases/download/v28.3.3/electron-v28.3.3-darwin-arm64.zip duration=500ms
+build (macos-latest)	Build React	2026-05-05T12:24:23.8728590Z   • skipped macOS application code signing  reason=cannot find valid "Developer ID Application" identity or custom non-Apple code signing certificate, it could cause some undefined behaviour, e.g. macOS localized description not visible, see https://electron.build/code-signing allIdentities=     0 identities found
+build (macos-latest)	Build React	2026-05-05T12:24:23.8730650Z                                                 Valid identities only
+build (macos-latest)	Build React	2026-05-05T12:24:23.8731170Z      0 valid identities found
+build (macos-latest)	Build React	2026-05-05T12:24:23.8733070Z   • building        target=DMG arch=arm64 file=dist/Falah Browser-0.0.0-arm64.dmg
+build (macos-latest)	Build React	2026-05-05T12:24:23.8755570Z   • Detected arm64 process, HFS+ is unavailable. Creating dmg with APFS - supports Mac OSX 10.12+
+build (macos-latest)	Build React	2026-05-05T12:24:45.1023220Z   • building block map  blockMapFile=dist/Falah Browser-0.0.0-arm64.dmg.blockmap
+build (macos-latest)	Package Electron	﻿2026-05-05T12:24:47.3112470Z ##[group]Run cd desktop
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3112790Z ^[[36;1mcd desktop^[[0m
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3113090Z ^[[36;1mnpm run build^[[0m
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3163970Z shell: /bin/bash -e {0}
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3164220Z env:
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3164850Z   GH_TOKEN: ***
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.3165050Z ##[endgroup]
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.5995380Z 
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.6000190Z > desktop@0.0.0 build
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.6000670Z > vite build && electron-builder
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.6000860Z 
+build (macos-latest)	Package Electron	2026-05-05T12:24:47.8666540Z ^[[36mvite v5.4.21 ^[[32mbuilding for production...^[[36m^[[39m
+build (macos-latest)	Package Electron	2026-05-05T12:24:48.3131140Z transforming...
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.1616340Z ^[[32m✓^[[39m 39 modules transformed.
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3319130Z rendering chunks...
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3354000Z computing gzip size...
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3404500Z ^[[2mdist/^[[22m^[[32mindex.html                 ^[[39m^[[1m^[[2m  0.46 kB^[[22m^[[1m^[[22m^[[2m │ gzip:  0.30 kB^[[22m
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3405720Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[35mindex-aXipkn9D.css  ^[[39m^[[1m^[[2m 17.99 kB^[[22m^[[1m^[[22m^[[2m │ gzip:  3.99 kB^[[22m
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3407080Z ^[[2mdist/^[[22m^[[2massets/^[[22m^[[36mindex-6XV6cVK6.js   ^[[39m^[[1m^[[2m178.96 kB^[[22m^[[1m^[[22m^[[2m │ gzip: 57.75 kB^[[22m
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.3414840Z ^[[32m✓ built in 1.05s^[[39m
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.8923850Z   • electron-builder  version=24.13.3 os=24.6.0
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.8927290Z   • artifacts will be published  reason=tag is defined tag=v1.0.0
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.8956200Z   • loaded configuration  file=package.json ("build" field)
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.8961770Z   • description is missed in the package.json  appPackageFile=/Users/runner/work/falah-browser/falah-browser/desktop/package.json
+build (macos-latest)	Package Electron	2026-05-05T12:24:49.8963960Z   • author is missed in the package.json  appPackageFile=/Users/runner/work/falah-browser/falah-browser/desktop/package.json
+build (macos-latest)	Package Electron	2026-05-05T12:24:50.1000490Z   • packaging       platform=darwin arch=arm64 electron=28.3.3 appOutDir=dist/mac-arm64
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3636420Z   ⨯ Cannot detect repository by .git/config. Please specify "repository" in the package.json (https://docs.npmjs.com/files/package.json#repository).
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3642930Z Please see https://electron.build/configuration/publish  failedTask=build stackTrace=Error: Cannot detect repository by .git/config. Please specify "repository" in the package.json (https://docs.npmjs.com/files/package.json#repository).
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3645820Z Please see https://electron.build/configuration/publish
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3647440Z     at getInfo (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:551:13)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3649810Z     at getResolvedPublishConfig (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:560:18)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3653010Z     at resolvePublishConfigurations (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:443:16)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3655160Z     at getPublishConfigs (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:417:10)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3656310Z     at getAppUpdatePublishConfiguration (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:249:73)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3657360Z     at /Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/publish/PublishManager.ts:118:29
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3658180Z     at Packager.afterPack (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/packager.ts:546:7)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3659140Z     at MacPackager.doPack (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/platformPackager.ts:312:5)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3660070Z     at MacPackager.pack (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/macPackager.ts:198:9)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3660980Z     at Packager.doBuild (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/packager.ts:445:9)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3663220Z     at executeFinally (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/builder-util/src/promise.ts:12:14)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3664130Z     at Packager._build (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/packager.ts:379:31)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3664940Z     at Packager.build (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/app-builder-lib/src/packager.ts:340:12)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.3665800Z     at executeFinally (/Users/runner/work/falah-browser/falah-browser/desktop/node_modules/builder-util/src/promise.ts:12:14)
+build (macos-latest)	Package Electron	2026-05-05T12:25:00.4151860Z ##[error]Process completed with exit code 1.
+build (macos-latest)	Post Checkout	﻿2026-05-05T12:25:00.4338760Z Post job cleanup.
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8048670Z [command]/opt/homebrew/bin/git version
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8400970Z git version 2.54.0
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8461550Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/a607cc7c-6539-43f8-bfed-cb48fb0b79b9/.gitconfig'
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8471900Z Temporarily overriding HOME='/Users/runner/work/_temp/a607cc7c-6539-43f8-bfed-cb48fb0b79b9' before making global git config changes
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8473000Z Adding repository directory to the temporary git global config as a safe directory
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8491590Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/falah-browser/falah-browser
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8655640Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+build (macos-latest)	Post Checkout	2026-05-05T12:25:00.8727210Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.0720720Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.0784450Z http.https://github.com/.extraheader
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.0806270Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.0898280Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.1839380Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build (macos-latest)	Post Checkout	2026-05-05T12:25:01.1901580Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build (macos-latest)	Complete job	﻿2026-05-05T12:25:01.3189530Z Cleaning up orphan processes
+build (macos-latest)	Complete job	2026-05-05T12:25:02.5741040Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, actions/setup-node@v4. Actions will be forced to run with Node.js 24 by default starting June 2nd, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
