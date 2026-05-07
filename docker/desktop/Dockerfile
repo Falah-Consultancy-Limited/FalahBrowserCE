@@ -1,3 +1,29 @@
+# ═══════════════════════════════════════════════
+#  Stage 1 — Vite frontend build
+# ═══════════════════════════════════════════════
+FROM node:18-slim AS web-builder
+
+ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
+
+WORKDIR /build
+
+# Install deps (cached separately from source)
+COPY desktop/package.json ./
+RUN npm install --legacy-peer-deps
+
+# Copy only the files Vite needs to build
+COPY desktop/index.html desktop/vite.config.js \
+     desktop/postcss.config.cjs desktop/tailwind.config.cjs ./
+COPY desktop/public ./public
+COPY desktop/src ./src
+
+# Build the React app → /build/dist/
+RUN ./node_modules/.bin/vite build
+
+
+# ═══════════════════════════════════════════════
+#  Stage 2 — Electron + noVNC runtime
+# ═══════════════════════════════════════════════
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -8,22 +34,17 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NODE_ENV=production \
     BACKEND_URL=http://falah-backend:8000
 
-# ── System dependencies ──────────────────────────────────────────
+# ── System deps ──────────────────────────────────────────────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl wget ca-certificates gnupg \
-    # X11 virtual display + window manager
     xvfb x11vnc openbox \
-    # noVNC (web VNC client) + websockify proxy
     novnc websockify \
-    # Electron / Chromium runtime libraries
     libgtk-3-0 libnotify4 libnss3 libxss1 libxtst6 \
     libatspi2.0-0 libdrm2 libgbm1 libasound2 \
     libx11-xcb1 libxcb-dri3-0 libxcomposite1 libxcursor1 \
     libxdamage1 libxfixes3 libxi6 libxrandr2 libxrender1 \
     libx11-6 libxext6 libxkbcommon0 \
-    # D-Bus (Electron tray + notifications)
     dbus dbus-x11 \
-    # Fonts — noto covers Arabic, emoji, and Latin
     fonts-noto-core fonts-noto-color-emoji \
     python3 \
     && rm -rf /var/lib/apt/lists/*
@@ -33,21 +54,23 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-# ── App dependencies (cached layer) ─────────────────────────────
 WORKDIR /app
-COPY desktop/package.json desktop/package-lock.json ./
+
+# Install only what Electron needs to run (skip devtools build)
+COPY desktop/package.json ./
 RUN npm install --legacy-peer-deps
 
-# ── Source code ──────────────────────────────────────────────────
-COPY desktop/ ./
+# Copy pre-built frontend from stage 1
+COPY --from=web-builder /build/dist ./dist
 
-# Build React/Vite frontend into dist/
-RUN npx vite build
+# Electron entry points
+COPY desktop/main.cjs desktop/preload.cjs ./
+COPY desktop/public ./public
 
-# ── noVNC custom landing page ─────────────────────────────────────
+# noVNC landing page
 COPY docker/desktop/index.html /usr/share/novnc/index.html
 
-# ── Startup ──────────────────────────────────────────────────────
+# Startup script
 COPY docker/desktop/start.sh /start.sh
 RUN chmod +x /start.sh
 
