@@ -32,7 +32,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     SCREEN_WIDTH=1280 \
     SCREEN_HEIGHT=800 \
     SCREEN_DEPTH=24 \
-    NODE_ENV=production \
     BACKEND_URL=http://falah-backend:8000
 
 # ── System deps ──────────────────────────────────────────────────
@@ -57,9 +56,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 
 WORKDIR /app
 
-# Install only what Electron needs to run (skip devtools build)
+# Install ALL deps (including devDependencies which contains electron).
+# NODE_ENV must NOT be 'production' here — npm skips devDeps in production mode.
 COPY desktop/package.json ./
-RUN npm install --legacy-peer-deps
+RUN NODE_ENV=development npm install --legacy-peer-deps
 
 # Copy pre-built frontend from stage 1
 COPY --from=web-builder /build/dist ./dist
