@@ -35,8 +35,7 @@ services:
     image: falah-desktop:latest
     container_name: falah-desktop
     depends_on:
-      falah-backend:
-        condition: service_healthy
+      - falah-backend
     environment:
       - DISPLAY=:99
       - SCREEN_WIDTH=1280
