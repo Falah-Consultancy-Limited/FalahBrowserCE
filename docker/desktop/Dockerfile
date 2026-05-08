@@ -7,9 +7,10 @@ ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
 
 WORKDIR /build
 
-# Install deps (cached separately from source)
+# Install deps (no lock file — regenerate for Linux to get correct platform builds)
 COPY desktop/package.json ./
-RUN npm install --legacy-peer-deps
+# ELECTRON_SKIP_BINARY_DOWNLOAD avoids 300MB Electron binary in the build stage
+RUN ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install --legacy-peer-deps
 
 # Copy only the files Vite needs to build
 COPY desktop/index.html desktop/vite.config.js \
@@ -17,8 +18,8 @@ COPY desktop/index.html desktop/vite.config.js \
 COPY desktop/public ./public
 COPY desktop/src ./src
 
-# Build the React app → /build/dist/
-RUN ./node_modules/.bin/vite build
+# Build the React/Tailwind app → /build/dist/
+RUN npm run build:web
 
 
 # ═══════════════════════════════════════════════
