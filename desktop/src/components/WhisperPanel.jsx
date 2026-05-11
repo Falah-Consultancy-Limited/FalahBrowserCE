@@ -1,4 +1,3 @@
-import React from 'react';
 
 const WhisperPanel = ({ isOpen, onClose, verdict }) => {
   if (!isOpen || !verdict) return null;

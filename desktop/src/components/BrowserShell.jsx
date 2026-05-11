@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import WhisperPanel from './WhisperPanel';
 
 const BrowserShell = () => {
@@ -20,9 +20,9 @@ const BrowserShell = () => {
     }
   };
 
-  const updateTab = (id, data) => {
-    setTabs(tabs.map(t => t.id === id ? { ...t, ...data } : t));
-  };
+  const updateTab = useCallback((id, data) => {
+    setTabs(prev => prev.map(t => t.id === id ? { ...t, ...data } : t));
+  }, []);
 
   useEffect(() => {
     if (webviewRef.current) {
@@ -46,7 +46,7 @@ const BrowserShell = () => {
       webview.addEventListener('load-commit', handleLoadCommit);
       return () => webview.removeEventListener('load-commit', handleLoadCommit);
     }
-  }, [activeTabId]);
+  }, [activeTabId, updateTab]);
 
   return (
     <div className="flex flex-col h-screen bg-falah-indigo text-falah-parchment">
