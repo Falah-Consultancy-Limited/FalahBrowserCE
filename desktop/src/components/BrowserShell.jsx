@@ -53,9 +53,9 @@ const BrowserShell = () => {
       {/* Toolbar */}
       <div className="flex items-center p-2 bg-falah-indigo border-b border-gray-700 space-x-2">
         <div className="flex space-x-2 mr-4">
-          <button className="p-1 hover:bg-gray-800 rounded">←</button>
-          <button className="p-1 hover:bg-gray-800 rounded">→</button>
-          <button className="p-1 hover:bg-gray-800 rounded">↻</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.goBack()}>←</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.goForward()}>→</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.reload()}>↻</button>
         </div>
         
         <input 

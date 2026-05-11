@@ -91,19 +91,45 @@ const Settings = () => {
           <section>
             <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-6">Location</h2>
             <div className="grid grid-cols-2 gap-4">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="City"
                 value={settings.location.city}
                 onChange={(e) => save({ ...settings, location: { ...settings.location, city: e.target.value } })}
                 className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 outline-none focus:border-falah-gold"
               />
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Country"
                 value={settings.location.country}
                 onChange={(e) => save({ ...settings, location: { ...settings.location, country: e.target.value } })}
                 className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 outline-none focus:border-falah-gold"
+              />
+            </div>
+          </section>
+
+          {/* Charity Link */}
+          <section>
+            <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-6">Charity Link</h2>
+            <input
+              type="url"
+              placeholder="https://www.islamic-relief.org.uk/"
+              value={settings.charityLink}
+              onChange={(e) => save({ ...settings, charityLink: e.target.value })}
+              className="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 outline-none focus:border-falah-gold"
+            />
+          </section>
+
+          {/* Appearance */}
+          <section>
+            <h2 className="text-xs uppercase tracking-widest text-gray-500 mb-6">Appearance</h2>
+            <div className="flex justify-between items-center p-4 bg-gray-900/50 rounded-xl border border-gray-800">
+              <span>Dark Mode</span>
+              <input
+                type="checkbox"
+                checked={settings.darkMode}
+                onChange={(e) => save({ ...settings, darkMode: e.target.checked })}
+                className="w-6 h-6 rounded border-gray-700 bg-gray-800 text-falah-gold focus:ring-falah-gold"
               />
             </div>
           </section>

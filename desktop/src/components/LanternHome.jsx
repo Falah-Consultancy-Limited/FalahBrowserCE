@@ -22,22 +22,31 @@ const LanternHome = () => {
   useEffect(() => {
     if (prayers) {
       const interval = setInterval(() => {
-        // Simple logic to find next prayer
         const now = new Date();
-        const currentTime = now.getHours() * 60 + now.getMinutes();
-        
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
         const prayerOrder = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
         let found = false;
         for (const name of prayerOrder) {
           const [h, m] = prayers[name].split(':').map(Number);
           const pTime = h * 60 + m;
-          if (pTime > currentTime) {
-            setNextPrayer({ name, time: prayers[name] });
+          if (pTime > currentMinutes) {
+            const diff = pTime - currentMinutes;
+            const hours = Math.floor(diff / 60);
+            const mins = diff % 60;
+            const countdown = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+            setNextPrayer({ name, time: countdown });
             found = true;
             break;
           }
         }
-        if (!found) setNextPrayer({ name: 'Fajr', time: prayers.Fajr });
+        if (!found) {
+          const [h, m] = prayers.Fajr.split(':').map(Number);
+          const fajrTomorrow = (24 * 60 - currentMinutes) + h * 60 + m;
+          const hours = Math.floor(fajrTomorrow / 60);
+          const mins = fajrTomorrow % 60;
+          setNextPrayer({ name: 'Fajr', time: `${hours}h ${mins}m` });
+        }
       }, 1000);
       return () => clearInterval(interval);
     }

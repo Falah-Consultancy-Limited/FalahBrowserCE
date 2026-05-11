@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import List, Dict, Optional
 import re
@@ -18,8 +18,8 @@ class Alternative(BaseModel):
     url: str
 
 class ClassificationRequest(BaseModel):
-    url: str = Field(..., example="https://example.com")
-    text: str = Field(..., example="Page content goes here")
+    url: str = Field(..., json_schema_extra={"example": "https://example.com"})
+    text: str = Field(..., json_schema_extra={"example": "Page content goes here"})
 
 class ClassificationResponse(BaseModel):
     verdict: str = Field(..., pattern="^(safe|caution|warning|blocked)$")
@@ -49,7 +49,9 @@ RULES: List[Dict] = [
         "alternatives": []
     },
     {
-        "pattern": r"interest|usury|loan shark|pawn shop",
+        "pattern": r"usury|loan shark|pawn shop|\binterest\b",
+        # negating_pattern: if matched, this rule is skipped (educational/halal context)
+        "negating_pattern": r"without interest|interest.{0,10}free|islamic finance|halal finance",
         "verdict": "caution",
         "reason": "Content may involve Riba (Interest).",
         "evidence": "Detected financial terms related to usury.",
@@ -71,6 +73,8 @@ async def classify(request: ClassificationRequest) -> ClassificationResponse:
 
     for rule in RULES:
         if re.search(rule["pattern"], text_content):
+            if rule.get("negating_pattern") and re.search(rule["negating_pattern"], text_content):
+                continue
             return ClassificationResponse(
                 verdict=rule["verdict"],
                 reason=rule["reason"],

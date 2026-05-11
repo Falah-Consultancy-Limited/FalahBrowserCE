@@ -54,23 +54,23 @@ const BrowserShell: React.FC = () => {
       {/* Toolbar */}
       <div className="flex items-center p-2 bg-falah-indigo border-b border-gray-700 space-x-2">
         <div className="flex space-x-2 mr-4">
-          <button className="p-1 hover:bg-gray-800 rounded">←</button>
-          <button className="p-1 hover:bg-gray-800 rounded">→</button>
-          <button className="p-1 hover:bg-gray-800 rounded">↻</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.goBack()}>←</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.goForward()}>→</button>
+          <button className="p-1 hover:bg-gray-800 rounded" onClick={() => webviewRef.current?.reload()}>↻</button>
         </div>
-        
-        <input 
-          type="text" 
+
+        <input
+          type="text"
           className="flex-1 bg-gray-900 border border-gray-700 rounded px-3 py-1 outline-none focus:border-falah-gold transition-colors"
           value={urlInput}
           onChange={(e) => setUrlInput(e.target.value)}
           onKeyDown={handleNavigate}
         />
 
-        <button 
+        <button
           onClick={() => setIsPanelOpen(!isPanelOpen)}
-          className={`p-1 rounded-full transition-all duration-500 \${
-            currentVerdict?.verdict === 'warning' ? 'shadow-[0_0_15px_#d4af37]' : 
+          className={`p-1 rounded-full transition-all duration-500 ${
+            currentVerdict?.verdict === 'warning' ? 'shadow-[0_0_15px_#d4af37]' :
             currentVerdict?.verdict === 'blocked' ? 'shadow-[0_0_15px_#ef4444]' : ''
           }`}
         >
@@ -84,13 +84,13 @@ const BrowserShell: React.FC = () => {
           <div 
             key={tab.id}
             onClick={() => setActiveTabId(tab.id)}
-            className={`px-4 py-2 text-sm cursor-pointer border-r border-gray-800 min-w-[150px] flex justify-between items-center \${
+            className={`px-4 py-2 text-sm cursor-pointer border-r border-gray-800 min-w-[150px] flex justify-between items-center ${
               tab.id === activeTabId ? 'bg-falah-indigo border-t-2 border-t-falah-gold' : 'hover:bg-gray-800'
             }`}
           >
             <span className="truncate">{tab.url}</span>
-            <div className={`w-2 h-2 rounded-full \${
-              tab.verdict === 'safe' ? 'bg-green-500' : 
+            <div className={`w-2 h-2 rounded-full ${
+              tab.verdict === 'safe' ? 'bg-green-500' :
               tab.verdict === 'caution' ? 'bg-yellow-500' : 'bg-red-500'
             }`} />
           </div>
