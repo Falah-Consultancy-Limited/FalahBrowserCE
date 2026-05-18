@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Falah OS™ — The world's first Shariah-native sovereign digital economy. Halal token engine, blockchain certification, AI guidance, Islamic finance and browser tools for the Ummah.">
+<meta name="keywords" content="Falah OS, halal, shariah, blockchain, HCT, halal certification, JAKIM, Islamic finance, halal token, browser extension">
+<meta property="og:title" content="Falah OS™ — The Sovereign Digital Economy">
+<meta property="og:description" content="The world's first Shariah-native operating system. Identity · Wallet · Contracts · Halal Tokens · Economy">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://falah-os.com">
+<title>Falah OS™ — The Sovereign Digital Economy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   FALAH OS — Design System
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --gold:         #c9983c;
+  --gold-light:   #e8b455;
+  --gold-dim:     rgba(201,152,60,0.1);
+  --gold-border:  rgba(201,152,60,0.2);
+  --jade:         #10b981;
+  --jade-dim:     rgba(16,185,129,0.1);
+  --ruby:         #ef4444;
+  --amber:        #f59e0b;
+  --sapphire:     #3b82f6;
+  --bg-void:      #07070a;
+  --bg-base:      #0d0d10;
+  --bg-surface:   #111115;
+  --bg-raised:    #16161c;
+  --bg-card:      #1b1b22;
+  --border-s:     rgba(255,255,255,0.05);
+  --border-m:     rgba(255,255,255,0.09);
+  --border-l:     rgba(255,255,255,0.16);
+  --text-1:       rgba(255,255,255,0.93);
+  --text-2:       rgba(255,255,255,0.58);
+  --text-3:       rgba(255,255,255,0.30);
+  --spring:       cubic-bezier(0.16,1,0.3,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── Global Geometry Background ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(201,152,60,0.018) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,152,60,0.018) 80px);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Scroll bar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-m); border-radius: 2px; }
+
+/* ── Typography ── */
+.display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  direction: rtl;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ── Layout ── */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+.section { padding: 100px 0; border-bottom: 1px solid var(--border-s); }
+.section:last-of-type { border-bottom: none; }
+
+/* ── Section Labels ── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: ''; width: 20px; height: 1px; background: var(--gold); opacity: 0.5;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.section-title em { font-style: italic; color: var(--gold-light); }
+
+.section-sub {
+  font-size: 15px; color: var(--text-2);
+  max-width: 540px; line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* ── Pills / Badges ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.badge-gold   { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+.badge-jade   { background: var(--jade-dim); color: var(--jade); border: 1px solid rgba(16,185,129,0.2); }
+.badge-amber  { background: rgba(245,158,11,0.1); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+.badge-ruby   { background: rgba(239,68,68,0.1); color: var(--ruby); border: 1px solid rgba(239,68,68,0.2); }
+.badge-blue   { background: rgba(59,130,246,0.1); color: var(--sapphire); border: 1px solid rgba(59,130,246,0.2); }
+.badge-dot::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  cursor: pointer; text-decoration: none; transition: all 0.2s var(--spring);
+  border: 1px solid transparent; font-family: 'DM Sans', sans-serif;
+}
+.btn-gold { background: var(--gold); color: #07070a; }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--text-2); border-color: var(--border-m); }
+.btn-ghost:hover { color: var(--text-1); border-color: var(--border-l); transform: translateY(-1px); }
+.btn svg { width: 15px; height: 15px; }
+
+/* ── Cards ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s var(--spring);
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,152,60,0.25), transparent);
+}
+.card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+
+/* ── Dividers ── */
+.divider { height: 1px; background: var(--border-s); }
+
+/* ── Animations ── */
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes pulse-glow { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.animate-in { animation: slide-up 0.6s var(--spring) both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,16,0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-s);
+  transition: background 0.3s;
+}
+.nav-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  height: 60px; display: flex; align-items: center; gap: 32px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+.nav-logo-mark {
+  width: 30px; height: 30px;
+  filter: drop-shadow(0 0 8px rgba(201,152,60,0.4));
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--gold-light); letter-spacing: 0.02em;
+}
+.nav-logo-text span { font-size: 11px; color: var(--text-3); margin-left: 2px; vertical-align: super; }
+.nav-links {
+  display: flex; gap: 4px; margin-left: auto; align-items: center;
+}
+.nav-links a {
+  font-size: 13px; color: var(--text-2); text-decoration: none;
+  padding: 6px 12px; border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover { color: var(--text-1); background: rgba(255,255,255,0.05); }
+.nav-cta {
+  margin-left: 8px;
+  font-size: 13px; font-weight: 500;
+  background: var(--gold-dim); color: var(--gold);
+  border: 1px solid var(--gold-border);
+  padding: 7px 16px; border-radius: 8px;
+  text-decoration: none; transition: all 0.15s;
+}
+.nav-cta:hover { background: rgba(201,152,60,0.18); color: var(--gold-light); }
+.nav-version {
+  font-size: 10px; color: var(--text-3);
+  padding: 3px 8px; border-radius: 4px;
+  background: var(--bg-raised); border: 1px solid var(--border-s);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 0 80px;
+  position: relative; overflow: hidden;
+}
+
+/* Islamic geometry rings */
+.hero-geometry {
+  position: absolute; right: -120px; top: 50%;
+  transform: translateY(-50%);
+  width: 700px; height: 700px;
+  opacity: 0.04; pointer-events: none;
+}
+.hero-geometry .ring-1 { animation: spin-slow 80s linear infinite; transform-origin: center; }
+.hero-geometry .ring-2 { animation: spin-reverse 60s linear infinite; transform-origin: center; }
+.hero-geometry .ring-3 { animation: spin-slow 100s linear infinite; transform-origin: center; }
+
+.hero-content { max-width: 680px; }
+
+.hero-badge-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-arabic-eyebrow {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 18px; color: var(--gold); opacity: 0.7;
+  direction: rtl; display: block; margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 300; line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); }
+.hero-title .line2 { display: block; font-size: clamp(18px, 2.5vw, 26px); color: var(--text-3); font-weight: 300; margin-top: 6px; letter-spacing: 0.04em; }
+
+.hero-sub {
+  font-size: 17px; color: var(--text-2);
+  line-height: 1.7; max-width: 520px;
+  margin: 24px 0 36px;
+}
+.hero-sub strong { color: var(--text-1); }
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+/* Stats bar */
+.hero-stats {
+  display: flex; gap: 0;
+  border: 1px solid var(--border-s);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-surface);
+  max-width: 560px;
+}
+.hero-stat {
+  flex: 1; padding: 16px 20px;
+  border-right: 1px solid var(--border-s);
+  text-align: center;
+}
+.hero-stat:last-child { border-right: none; }
+.hs-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 500;
+  color: var(--gold-light); line-height: 1; margin-bottom: 4px;
+}
+.hs-label { font-size: 10px; color: var(--text-3); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════════════════════════
+   PRODUCT SHOWCASE BAR
+   ═══════════════════════════════════════════════════════════ */
+.products-bar {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border-s);
+  border-top: 1px solid var(--border-s);
+  background: var(--bg-surface);
+}
+.products-bar-inner {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+}
+.prod-chip {
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 18px; border-radius: 10px;
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  text-decoration: none; transition: all 0.2s;
+  cursor: pointer;
+}
+.prod-chip:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.prod-chip-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.prod-chip-name { font-size: 13px; font-weight: 500; color: var(--text-1); }
+.prod-chip-sub  { font-size: 10.5px; color: var(--text-3); }
+.prod-chip-badge {
+  margin-left: 8px; font-size: 9px; font-weight: 600;
+  padding: 2px 7px; border-radius: 20px; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pcb-new  { background: rgba(16,185,129,0.12); color: var(--jade); border: 1px solid rgba(16,185,129,0.2); }
+.pcb-live { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+
+/* ═══════════════════════════════════════════════════════════
+   HALAL TOKEN ENGINE (NEW)
+   ═══════════════════════════════════════════════════════════ */
+.token-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px; margin-bottom: 40px;
+}
+.token-card {
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  border-radius: 14px; padding: 24px;
+  position: relative; overflow: hidden;
+  transition: all 0.25s var(--spring);
+}
+.token-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--gold-dim), transparent 60%);
+  opacity: 0; transition: opacity 0.2s;
+}
+.token-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+.token-card:hover::after { opacity: 1; }
+.tc-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  color: var(--gold); letter-spacing: 0.1em;
+  margin-bottom: 12px; display: block;
+}
+.tc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 500;
+  color: var(--text-1); margin-bottom: 6px;
+}
+.tc-desc { font-size: 12.5px; color: var(--text-2); line-height: 1.55; margin-bottom: 14px; }
+.tc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.tc-tag-item {
+  font-size: 10px; padding: 2px 8px; border-radius: 4px;
+  background: rgba(255,255,255,0.05); color: var(--text-3);
+  border: 1px solid var(--border-s);
+}
+
+/* Certification bodies */
+.cert-bodies {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 40px;
+  padding: 24px; background: var(--bg-surface); border-radius: 12px;
+  border: 1px solid var(--border-s);
+  align-items: center;
+}
+.cert-label { font-size: 11px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
+.cert-body {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 8px;
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  font-size: 12px; font-weight: 500; color: var(--text-1);
+  transition: all 0.15s;
+}
+.cert-body:hover { border-color: var(--gold-border); color: var(--gold); }
+.cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--jade); }
+
+/* Token flow diagram */
+.token-flow {
+  background: var(--bg-surface); border: 1px solid var(--border-s);
+  border-radius: 14px; padding: 28px; margin-top: 32px;
+}
+.tf-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 20px; }
+.tf-steps { display: flex; align-items: center; gap: 0; overflow-x: auto; }
+.tf-step {
+  flex: 1; min-width: 120px; text-align: center; padding: 0 8px;
+  position: relative;
+}
+.tf-step:not(:last-child)::after {
+  content: '→'; position: absolute; right: -8px; top: 50%;
+  transform: translateY(-50%); color: var(--gold); opacity: 0.5; font-size: 14px;
+}
+.tf-step-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin: 0 auto 8px;
+}
+.tf-step-name { font-size: 11px; font-weight: 500; color: var(--text-1); margin-bottom: 3px; }
+.tf-step-sub  { font-size: 10px; color: var(--text-3); }
+
+/* ═══════════════════════════════════════════════════════════
+   BROWSER & EXTENSION (NEW)
+   ═══════════════════════════════════════════════════════════ */
+.browser-showcase {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.bs-card {
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  border-radius: 16px; overflow: hidden;
+  transition: all 0.25s var(--spring);
+}
+.bs-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+.bs-mockup {
+  background: #0a0a0c;
+  border-bottom: 1px solid var(--border-s);
+  padding: 16px 14px 0; height: 200px; overflow: hidden; position: relative;
+}
+/* Mini browser mockup */
+.mini-browser {
+  background: #1e1e1e; border-radius: 8px 8px 0 0;
+  overflow: hidden; height: 100%;
+}
+.mini-browser-bar {
+  background: #2d2d2d; height: 28px;
+  display: flex; align-items: center; padding: 0 10px; gap: 5px;
+}
+.mini-dot { width: 7px; height: 7px; border-radius: 50%; }
+.mini-url {
+  flex: 1; height: 16px; background: rgba(255,255,255,0.08);
+  border-radius: 8px; margin: 0 8px;
+}
+.mini-subbar {
+  height: 22px; background: rgba(13,13,16,0.98);
+  border-bottom: 1px solid rgba(201,152,60,0.2);
+  display: flex; align-items: center; padding: 0 8px; gap: 6px;
+}
+.mini-verdict-pill {
+  height: 13px; width: 40px; border-radius: 6px;
+  background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.2);
+}
+.mini-verdict-text {
+  flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 3px;
+}
+.mini-panel {
+  display: flex; height: calc(100% - 50px);
+}
+.mini-panel-left {
+  width: 80px; background: #0e0e11;
+  border-right: 1px solid rgba(201,152,60,0.1);
+  padding: 8px;
+}
+.mini-panel-row { height: 8px; background: rgba(255,255,255,0.05); border-radius: 3px; margin-bottom: 5px; }
+.mini-panel-row.gold { background: rgba(201,152,60,0.2); }
+.mini-web { flex: 1; background: #f0ece4; padding: 8px; }
+.mini-web-line { height: 7px; background: rgba(0,0,0,0.08); border-radius: 3px; margin-bottom: 5px; }
+.mini-web-line.wide { width: 80%; }
+
+/* Extension mockup */
+.mini-ext {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.mini-ext-popup {
+  width: 160px; background: #0e0e11;
+  border: 1px solid rgba(201,152,60,0.2);
+  border-radius: 10px; overflow: hidden;
+}
+.mini-ext-header {
+  background: #131317; padding: 8px 10px;
+  border-bottom: 1px solid rgba(201,152,60,0.15);
+  display: flex; align-items: center; gap: 6px;
+}
+.mini-lantern { color: var(--gold); font-size: 14px; filter: drop-shadow(0 0 4px rgba(201,152,60,0.5)); }
+.mini-ext-name { font-size: 11px; font-weight: 500; color: var(--gold-light); }
+.mini-ext-body { padding: 8px 10px; }
+.mini-ext-verdict {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 6px; padding: 4px 7px; margin-bottom: 7px;
+}
+.mini-ext-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--jade); }
+.mini-ext-txt { font-size: 10px; color: var(--jade); }
+.mini-ext-line { height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; margin-bottom: 4px; }
+
+.bs-info { padding: 20px 22px 22px; }
+.bs-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.bs-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 500; color: var(--text-1);
+  margin-bottom: 7px;
+}
+.bs-desc { font-size: 12.5px; color: var(--text-2); line-height: 1.6; margin-bottom: 14px; }
+.bs-feats { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+.bs-feat {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11.5px; color: var(--text-2);
+}
+.bs-feat::before { content: '✓'; color: var(--jade); font-size: 11px; flex-shrink: 0; }
+.bs-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.bs-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 7px; font-size: 12px; font-weight: 500;
+  text-decoration: none; transition: all 0.15s; border: 1px solid;
+  font-family: 'DM Sans', sans-serif; cursor: pointer;
+}
+.bs-btn-gold { background: var(--gold); color: #07070a; border-color: var(--gold); }
+.bs-btn-gold:hover { background: var(--gold-light); }
+.bs-btn-ghost { background: transparent; color: var(--text-2); border-color: var(--border-m); }
+.bs-btn-ghost:hover { color: var(--text-1); border-color: var(--border-l); }
+
+/* ═══════════════════════════════════════════════════════════
+   WHISPER AI (NEW)
+   ═══════════════════════════════════════════════════════════ */
+.whisper-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.whisper-verdicts { display: flex; flex-direction: column; gap: 10px; }
+.wv-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 16px; border-radius: 10px;
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  transition: all 0.2s;
+}
+.wv-item:hover { border-color: var(--gold-border); }
+.wv-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0; font-weight: 700;
+}
+.wv-safe    .wv-icon { background: rgba(16,185,129,0.15);  color: var(--jade); }
+.wv-caution .wv-icon { background: rgba(245,158,11,0.15);  color: var(--amber); }
+.wv-warning .wv-icon { background: rgba(239,68,68,0.12);   color: var(--ruby); }
+.wv-blocked .wv-icon { background: rgba(239,68,68,0.2);    color: var(--ruby); }
+.wv-title { font-size: 13px; font-weight: 500; color: var(--text-1); margin-bottom: 3px; }
+.wv-desc  { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+
+.whisper-features { display: flex; flex-direction: column; gap: 18px; }
+.wf-item { display: flex; gap: 14px; align-items: flex-start; }
+.wf-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: var(--gold); flex-shrink: 0;
+}
+.wf-title { font-size: 14px; font-weight: 500; color: var(--text-1); margin-bottom: 3px; }
+.wf-desc  { font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════════
+   SOVEREIGN STACK (updated)
+   ═══════════════════════════════════════════════════════════ */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.stack-card {
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  border-radius: 14px; padding: 22px;
+  transition: all 0.2s var(--spring);
+  position: relative;
+}
+.stack-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.sc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--gold); opacity: 0.6;
+  letter-spacing: 0.06em; margin-bottom: 12px; display: block;
+}
+.sc-icon {
+  font-size: 22px; margin-bottom: 10px; display: block;
+  filter: drop-shadow(0 2px 8px rgba(201,152,60,0.2));
+}
+.sc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 500; color: var(--text-1);
+  margin-bottom: 5px;
+}
+.sc-desc { font-size: 12px; color: var(--text-2); line-height: 1.55; margin-bottom: 12px; }
+.sc-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.sc-tag {
+  font-size: 9.5px; padding: 2px 7px; border-radius: 4px;
+  background: rgba(255,255,255,0.04); color: var(--text-3);
+  border: 1px solid var(--border-s);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TRANSACTION PIPELINE
+   ═══════════════════════════════════════════════════════════ */
+.pipeline {
+  background: var(--bg-surface); border: 1px solid var(--border-s);
+  border-radius: 16px; overflow: hidden;
+}
+.pipeline-step {
+  display: flex; align-items: center; gap: 20px;
+  padding: 18px 24px; border-bottom: 1px solid var(--border-s);
+  transition: background 0.15s;
+}
+.pipeline-step:last-child { border-bottom: none; }
+.pipeline-step:hover { background: rgba(255,255,255,0.02); }
+.ps-num {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--gold-dim); border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; color: var(--gold); flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+.ps-info { flex: 1; }
+.ps-name { font-size: 14px; font-weight: 500; color: var(--text-1); margin-bottom: 2px; }
+.ps-desc { font-size: 12px; color: var(--text-2); }
+.ps-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.ps-tag {
+  font-size: 10px; padding: 2px 8px; border-radius: 4px;
+  background: rgba(255,255,255,0.04); color: var(--text-3);
+  border: 1px solid var(--border-s); white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROTOCOL FEE
+   ═══════════════════════════════════════════════════════════ */
+.protocol-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.protocol-visual {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pv-bar {
+  background: var(--bg-surface); border: 1px solid var(--border-s);
+  border-radius: 10px; padding: 16px 18px;
+}
+.pv-bar-label { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
+.pv-bar-track {
+  height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;
+}
+.pv-bar-fill { height: 100%; border-radius: 4px; }
+.pv-bar-fill.falah { background: linear-gradient(90deg, var(--jade), var(--gold)); width: 98.5%; }
+.pv-bar-fill.others { background: var(--ruby); width: 70%; }
+.pv-bar-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold-light); margin-top: 6px; }
+
+.protocol-copy {}
+.pc-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 6vw, 72px); font-weight: 300;
+  color: var(--gold-light); line-height: 1; margin-bottom: 4px;
+}
+.pc-label { font-size: 13px; color: var(--text-2); margin-bottom: 20px; }
+.pc-body { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+.pc-body strong { color: var(--text-1); }
+
+/* ═══════════════════════════════════════════════════════════
+   ISLAMIC FINANCE (NEW expanded)
+   ═══════════════════════════════════════════════════════════ */
+.finance-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+.fin-card {
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  border-radius: 12px; padding: 20px;
+  transition: all 0.2s var(--spring);
+}
+.fin-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.fin-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+.fin-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 500; color: var(--text-1); margin-bottom: 3px;
+}
+.fin-arabic { font-family: 'Noto Naskh Arabic', serif; font-size: 13px; color: var(--gold); opacity: 0.7; margin-bottom: 7px; direction: rtl; text-align: left; }
+.fin-desc { font-size: 12px; color: var(--text-2); line-height: 1.55; }
+
+/* ═══════════════════════════════════════════════════════════
+   ECOSYSTEM
+   ═══════════════════════════════════════════════════════════ */
+.ecosystem-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+.eco-card {
+  background: var(--bg-card); border: 1px solid var(--border-s);
+  border-radius: 12px; padding: 22px;
+  transition: all 0.2s var(--spring); text-align: center;
+}
+.eco-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+.eco-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+.eco-name { font-size: 14px; font-weight: 500; color: var(--text-1); margin-bottom: 6px; }
+.eco-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════════════════════════ */
+.cta-section {
+  padding: 100px 0;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-geo {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 600px; height: 600px; opacity: 0.03;
+  animation: spin-slow 90s linear infinite;
+  pointer-events: none;
+}
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300; color: var(--text-1);
+  letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.cta-title em { font-style: italic; color: var(--gold-light); }
+.cta-arabic {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 22px; color: var(--gold); opacity: 0.6;
+  display: block; margin-bottom: 10px;
+}
+.cta-sub { font-size: 16px; color: var(--text-2); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-s);
+  padding: 48px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px;
+  margin-bottom: 40px;
+}
+.footer-brand {}
+.fb-logo {
+  display: flex; align-items: center; gap: 9px; margin-bottom: 12px;
+}
+.fb-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  font-weight: 500; color: var(--gold-light);
+}
+.fb-tagline { font-size: 12px; color: var(--text-3); line-height: 1.6; max-width: 220px; }
+.fb-arabic {
+  font-family: 'Noto Naskh Arabic', serif; font-size: 14px;
+  color: var(--gold); opacity: 0.5; direction: rtl; margin-top: 8px; display: block;
+  text-align: left;
+}
+
+.footer-col-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; }
+.footer-col a {
+  display: block; font-size: 13px; color: var(--text-2);
+  text-decoration: none; margin-bottom: 8px; transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 24px; border-top: 1px solid var(--border-s);
+  font-size: 12px; color: var(--text-3); flex-wrap: wrap; gap: 12px;
+}
+.fb-version {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  padding: 3px 8px; background: var(--bg-raised); border-radius: 4px;
+  border: 1px solid var(--border-s);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .token-grid, .browser-showcase, .whisper-layout, .stack-grid,
+  .protocol-layout, .finance-grid, .ecosystem-grid, .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .ecosystem-grid { grid-template-columns: 1fr 1fr; }
+  .hero-geometry { display: none; }
+  .nav-links .hide-mobile { display: none; }
+  .container { padding: 0 20px; }
+  .section { padding: 64px 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg class="nav-logo-mark" width="30" height="30" viewBox="0 0 40 40" fill="none">
+        <path d="M20 4L26 10H28V30H12V10H14L20 4Z" fill="rgba(201,152,60,0.22)" stroke="#c9983c" stroke-width="1.5"/>
+        <circle cx="20" cy="19" r="4" fill="#c9983c" opacity="0.9"/>
+        <path d="M15 30H25L24 36H16L15 30Z" fill="#c9983c" opacity="0.35"/>
+      </svg>
+      <span class="nav-logo-text">FALAH OS<span>™</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#tokens" class="hide-mobile">Halal Tokens</a>
+      <a href="#products" class="hide-mobile">Products</a>
+      <a href="#architecture" class="hide-mobile">Architecture</a>
+      <a href="#protocol" class="hide-mobile">Protocol</a>
+      <a href="#ecosystem" class="hide-mobile">Ecosystem</a>
+      <a href="https://dev.falah-os.com" class="hide-mobile">Developers</a>
+      <span class="nav-version">v1.2</span>
+      <a href="https://dev.falah-os.com" class="nav-cta">Build on Falah</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════════════════ -->
+<section class="hero" aria-label="Hero — Falah OS sovereign digital economy">
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="hero-badge-row animate-in">
+        <span class="badge badge-gold badge-dot">v1.2 Sovereign Architecture</span>
+        <span class="badge badge-jade badge-dot">iBaaS Enabled</span>
+        <span class="badge badge-amber badge-dot">HCT Engine Live</span>
+      </div>
+
+      <!-- وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ — My success is only through Allah -->
+      <span class="hero-arabic-eyebrow animate-in delay-1">نظام الفلاح — الاقتصاد الرقمي السيادي</span>
+
+      <h1 class="hero-title animate-in delay-2">
+        The Sovereign<br>
+        <em>Digital Economy</em>
+        <span class="line2">Identity · Wallet · Halal Tokens · Contracts</span>
+      </h1>
+
+      <p class="hero-sub animate-in delay-3">
+        The world's first <strong>Shariah-native operating system</strong> for digital economies.
+        Blockchain-verified halal certification, zero-knowledge identity, Islamic finance contracts,
+        and AI Shariah guidance — built on sovereign infrastructure, owned by the Ummah.
+      </p>
+
+      <div class="hero-btns animate-in delay-4">
+        <a href="https://dev.falah-os.com" class="btn btn-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Start Building
+        </a>
+        <a href="#tokens" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Explore Halal Tokens →
+        </a>
+      </div>
+
+      <div class="hero-stats animate-in delay-5">
+        <div class="hero-stat">
+          <div class="hs-val">1.5%</div>
+          <div class="hs-label">Protocol Fee</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-val">98.5%</div>
+          <div class="hs-label">To Developers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-val">200+</div>
+          <div class="hs-label">iBaaS Connectors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-val">ZK</div>
+          <div class="hs-label">Identity Layer</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-val">0 PII</div>
+          <div class="hs-label">Data Leaked</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rotating Islamic geometry -->
+  <svg class="hero-geometry" viewBox="0 0 700 700">
+    <g class="ring-1">
+      <polygon points="350,30 670,185 670,515 350,670 30,515 30,185" fill="none" stroke="white" stroke-width="1"/>
+      <polygon points="350,80 620,210 620,490 350,620 80,490 80,210" fill="none" stroke="white" stroke-width="0.7"/>
+    </g>
+    <g class="ring-2">
+      <circle cx="350" cy="350" r="280" fill="none" stroke="white" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="220" fill="none" stroke="white" stroke-width="0.4"/>
+    </g>
+    <g class="ring-3">
+      <polygon points="350,120 580,245 580,455 350,580 120,455 120,245" fill="none" stroke="white" stroke-width="0.5"/>
+      <line x1="350" y1="30" x2="350" y2="670" stroke="white" stroke-width="0.3"/>
+      <line x1="30" y1="350" x2="670" y2="350" stroke="white" stroke-width="0.3"/>
+      <line x1="30" y1="185" x2="670" y2="515" stroke="white" stroke-width="0.25"/>
+      <line x1="30" y1="515" x2="670" y2="185" stroke="white" stroke-width="0.25"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ═══ PRODUCTS BAR ═══════════════════════════════════════════════════════════ -->
+<div class="products-bar" id="products">
+  <div class="container">
+    <div class="products-bar-inner">
+
+      <a href="#tokens" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(201,152,60,0.12);">⚡</div>
+        <div>
+          <div class="prod-chip-name">Halal Token Engine</div>
+          <div class="prod-chip-sub">HCT · HPT · HLT</div>
+        </div>
+        <span class="prod-chip-badge pcb-live">Live</span>
+      </a>
+
+      <a href="#browser" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(201,152,60,0.12);">🏮</div>
+        <div>
+          <div class="prod-chip-name">Falah Browser</div>
+          <div class="prod-chip-sub">macOS & Windows</div>
+        </div>
+        <span class="prod-chip-badge pcb-new">v1.0.1</span>
+      </a>
+
+      <a href="#browser" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(16,185,129,0.1);">🔌</div>
+        <div>
+          <div class="prod-chip-name">Falah Extension</div>
+          <div class="prod-chip-sub">Chrome & Edge</div>
+        </div>
+        <span class="prod-chip-badge pcb-new">New</span>
+      </a>
+
+      <a href="#whisper" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(59,130,246,0.1);">🛡️</div>
+        <div>
+          <div class="prod-chip-name">Falah's Whisper</div>
+          <div class="prod-chip-sub">AI Shariah Guidance</div>
+        </div>
+        <span class="prod-chip-badge pcb-live">AI</span>
+      </a>
+
+      <a href="https://store.falah-os.com" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(245,158,11,0.1);">🛍️</div>
+        <div>
+          <div class="prod-chip-name">iStore™</div>
+          <div class="prod-chip-sub">Halal Marketplace</div>
+        </div>
+        <span class="prod-chip-badge pcb-live">Live</span>
+      </a>
+
+      <a href="https://dev.falah-os.com" class="prod-chip">
+        <div class="prod-chip-icon" style="background:rgba(239,68,68,0.08);">📜</div>
+        <div>
+          <div class="prod-chip-name">RAMZ Engine</div>
+          <div class="prod-chip-sub">Islamic Finance Contracts</div>
+        </div>
+        <span class="prod-chip-badge pcb-live">Live</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HALAL TOKEN ENGINE (NEW) ═══════════════════════════════════════════════ -->
+<section class="section" id="tokens">
+  <div class="container">
+    <div class="eyebrow">Halal Certification Layer</div>
+    <h2 class="section-title">The <em>Halal Token</em> Engine</h2>
+    <p class="section-sub">
+      The world's first blockchain-native halal certification system. Every facility, product,
+      ingredient and logistics chain carries an immutable on-chain token — scannable, verifiable,
+      cross-border. Like a halal stamp that can never be forged, bought, or expired without the
+      certifying body's cryptographic signature.
+    </p>
+
+    <div class="token-grid">
+
+      <div class="token-card">
+        <span class="tc-tag">HCT — EIP-5192 Soulbound</span>
+        <div class="tc-title">Halal Certificate Token</div>
+        <p class="tc-desc">Non-transferable soulbound token representing halal certification for facilities, products, processes, and ingredients. Issued by accredited bodies, expires and renews on-chain.</p>
+        <div class="tc-tags">
+          <span class="tc-tag-item">Soulbound</span>
+          <span class="tc-tag-item">Non-transferable</span>
+          <span class="tc-tag-item">Multi-authority</span>
+          <span class="tc-tag-item">Auto-expiry</span>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <span class="tc-tag">HPT — SKU Identity</span>
+        <div class="tc-title">Halal Product Token</div>
+        <p class="tc-desc">Tokenised SKU-level product identity linked to its certificate token, batch number, ingredient tokens and logistics chain. Every product on the shelf has a verifiable on-chain passport.</p>
+        <div class="tc-tags">
+          <span class="tc-tag-item">SKU-level</span>
+          <span class="tc-tag-item">Batch tracking</span>
+          <span class="tc-tag-item">Ingredient links</span>
+          <span class="tc-tag-item">QR verify</span>
+        </div>
+      </div>
+
+      <div class="token-card">
+        <span class="tc-tag">HLT — Supply Chain</span>
+        <div class="tc-title">Halal Logistics Token</div>
+        <p class="tc-desc">Immutable supply-chain ledger token covering transport chains, cold-chain integrity, storage events, and import/export checkpoints. No break in halal status can be hidden.</p>
+        <div class="tc-tags">
+          <span class="tc-tag-item">Cold-chain</span>
+          <span class="tc-tag-item">IoT ingestion</span>
+          <span class="tc-tag-item">Immutable log</span>
+          <span class="tc-tag-item">Customs API</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Token Flow -->
+    <div class="token-flow">
+      <div class="tf-title">Token Lifecycle — From Certification to Consumer QR Scan</div>
+      <div class="tf-steps">
+        <div class="tf-step">
+          <div class="tf-step-icon">🏛️</div>
+          <div class="tf-step-name">Cert Body</div>
+          <div class="tf-step-sub">JAKIM / BPJPH / GCC</div>
+        </div>
+        <div class="tf-step">
+          <div class="tf-step-icon">⚡</div>
+          <div class="tf-step-name">Mint HCT</div>
+          <div class="tf-step-sub">Soulbound · Signed</div>
+        </div>
+        <div class="tf-step">
+          <div class="tf-step-icon">🏭</div>
+          <div class="tf-step-name">Bind HPT</div>
+          <div class="tf-step-sub">SKU · Batch · Ingredients</div>
+        </div>
+        <div class="tf-step">
+          <div class="tf-step-icon">🚚</div>
+          <div class="tf-step-name">HLT Log</div>
+          <div class="tf-step-sub">Cold-chain · Customs</div>
+        </div>
+        <div class="tf-step">
+          <div class="tf-step-icon">🛍️</div>
+          <div class="tf-step-name">iStore</div>
+          <div class="tf-step-sub">Listed · Token-verified</div>
+        </div>
+        <div class="tf-step">
+          <div class="tf-step-icon">📱</div>
+          <div class="tf-step-name">QR Scan</div>
+          <div class="tf-step-sub">Consumer verified</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification bodies -->
+    <div class="cert-bodies">
+      <span class="cert-label">Recognised Bodies:</span>
+      <div class="cert-body"><span class="cert-dot"></span>JAKIM (Malaysia) — MS1500:2019</div>
+      <div class="cert-body"><span class="cert-dot"></span>BPJPH (Indonesia) — SIHALAL</div>
+      <div class="cert-body"><span class="cert-dot"></span>MUI (Indonesia)</div>
+      <div class="cert-body"><span class="cert-dot"></span>GCC/GSO (Gulf)</div>
+      <div class="cert-body"><span class="cert-dot"></span>ESMA (UAE)</div>
+      <div class="cert-body"><span class="cert-dot"></span>IFANCA (USA)</div>
+      <div class="cert-body" style="opacity:0.5; cursor:default;">+ MRA Cross-border rules</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BROWSER & EXTENSION (NEW) ════════════════════════════════════════════ -->
+<section class="section" id="browser">
+  <div class="container">
+    <div class="eyebrow">Client Applications</div>
+    <h2 class="section-title">Browse with <em>Intention</em></h2>
+    <p class="section-sub">
+      Two ways to bring Shariah guidance into your daily browsing — a full sovereign desktop browser,
+      or a lightweight extension that sits on top of Chrome and Edge.
+    </p>
+
+    <div class="browser-showcase">
+
+      <!-- Falah Browser -->
+      <div class="bs-card">
+        <div class="bs-mockup">
+          <div class="mini-browser">
+            <div class="mini-browser-bar">
+              <div class="mini-dot" style="background:#ff5f57;"></div>
+              <div class="mini-dot" style="background:#febc2e;"></div>
+              <div class="mini-dot" style="background:#28c840;"></div>
+              <div class="mini-url"></div>
+            </div>
+            <div class="mini-subbar">
+              <div style="width:14px;height:14px;opacity:0.8;font-size:12px;line-height:14px;">🏮</div>
+              <div class="mini-verdict-pill"></div>
+              <div class="mini-verdict-text"></div>
+            </div>
+            <div class="mini-panel">
+              <div class="mini-panel-left">
+                <div class="mini-panel-row gold"></div>
+                <div class="mini-panel-row"></div>
+                <div class="mini-panel-row"></div>
+                <div class="mini-panel-row"></div>
+                <div class="mini-panel-row"></div>
+                <div class="mini-panel-row"></div>
+              </div>
+              <div class="mini-web">
+                <div class="mini-web-line wide"></div>
+                <div class="mini-web-line" style="width:60%;"></div>
+                <div class="mini-web-line wide"></div>
+                <div class="mini-web-line" style="width:70%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bs-info">
+          <div class="bs-tag">Desktop Application</div>
+          <div class="bs-name">🏮 Falah Browser</div>
+          <p class="bs-desc">A sovereign Electron desktop browser with built-in AI Shariah guidance, Lantern Home dashboard, prayer times, and blockchain halal verification. Your complete Islamic browsing environment.</p>
+          <div class="bs-feats">
+            <div class="bs-feat">Falah's Whisper AI — real-time Shariah verdict on every page</div>
+            <div class="bs-feat">Lantern Home — prayer times, daily verse, Sunnah checklist</div>
+            <div class="bs-feat">Reflection Mode — private encrypted journaling</div>
+            <div class="bs-feat">Built-in ad & tracker blocking, zero telemetry</div>
+            <div class="bs-feat">HCT on-chain certificate verification</div>
+          </div>
+          <div class="bs-btns">
+            <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases/tag/v1.0.1" class="bs-btn bs-btn-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              macOS Download ↗
+            </a>
+            <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases/tag/v1.0.1" class="bs-btn bs-btn-ghost">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Windows Download ↗
+            </a>
+            <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE" class="bs-btn bs-btn-ghost">Source ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Falah Extension -->
+      <div class="bs-card">
+        <div class="bs-mockup">
+          <div class="mini-ext">
+            <div class="mini-ext-popup">
+              <div class="mini-ext-header">
+                <span class="mini-lantern">🏮</span>
+                <span class="mini-ext-name">Falah Extension</span>
+              </div>
+              <div class="mini-ext-body">
+                <div class="mini-ext-verdict">
+                  <div class="mini-ext-dot"></div>
+                  <span class="mini-ext-txt">Safe — JAKIM Verified</span>
+                </div>
+                <div class="mini-ext-line" style="width:90%;"></div>
+                <div class="mini-ext-line" style="width:70%;"></div>
+                <div class="mini-ext-line" style="width:80%;"></div>
+                <div style="margin-top:6px; display:flex; gap:4px;">
+                  <div style="flex:1;height:18px;background:rgba(201,152,60,0.15);border-radius:4px;"></div>
+                  <div style="flex:1;height:18px;background:rgba(255,255,255,0.05);border-radius:4px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bs-info">
+          <div class="bs-tag">Browser Extension — Manifest V3</div>
+          <div class="bs-name">🔌 Falah Extension</div>
+          <p class="bs-desc">Runs on top of your existing Chrome or Edge browser. Adds a verdict subbar below the address bar and a 5-tab side panel — all Falah OS features without switching browsers.</p>
+          <div class="bs-feats">
+            <div class="bs-feat">Verdict subbar injected below address bar on every page</div>
+            <div class="bs-feat">5-tab side panel: Whisper · Lantern · iStore · HCT · Config</div>
+            <div class="bs-feat">Prayer times & adhan notifications from any browser</div>
+            <div class="bs-feat">Strict mode — blocks haram content with Quranic overlay</div>
+            <div class="bs-feat">Connects to Falah OS API & iStore in real-time</div>
+          </div>
+          <div class="bs-btns">
+            <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases/tag/v1.0.1" class="bs-btn bs-btn-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Extension Download ↗
+            </a>
+            <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases" class="bs-btn bs-btn-ghost" aria-label="Chrome Web Store - coming soon" style="opacity:0.5; cursor:default;" onclick="return false;">
+              Chrome Store (soon)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FALAH'S WHISPER (NEW) ════════════════════════════════════════════════ -->
+<section class="section" id="whisper">
+  <div class="container">
+    <div class="eyebrow">AI Compliance Layer</div>
+    <h2 class="section-title">Falah's <em>Whisper</em></h2>
+    <p class="section-sub">
+      An AI Shariah advisor embedded in every Falah product. Like a knowledgeable scholar
+      who has read every page before you — it whispers guidance quietly, surfaces Quranic
+      evidence, and suggests halal alternatives without interrupting your flow.
+    </p>
+
+    <div class="whisper-layout">
+
+      <div class="whisper-verdicts">
+        <div class="wv-item wv-safe">
+          <div class="wv-icon">✓</div>
+          <div>
+            <div class="wv-title">Safe — Permissible</div>
+            <div class="wv-desc">Page contains no content contrary to Islamic principles. Lantern glows green. Browse freely, inshallah.</div>
+          </div>
+        </div>
+        <div class="wv-item wv-caution">
+          <div class="wv-icon">!</div>
+          <div>
+            <div class="wv-title">Caution — Proceed with Awareness</div>
+            <div class="wv-desc">Mixed content or gray-area elements. Whisper panel opens with the specific scholarly concern and relevant ayah.</div>
+          </div>
+        </div>
+        <div class="wv-item wv-warning">
+          <div class="wv-icon">⚠</div>
+          <div>
+            <div class="wv-title">Warning — Islamically Problematic</div>
+            <div class="wv-desc">Content broadly considered impermissible. Strong advisory with Hadith reference and halal alternatives provided.</div>
+          </div>
+        </div>
+        <div class="wv-item wv-blocked">
+          <div class="wv-icon">✕</div>
+          <div>
+            <div class="wv-title">Blocked — Haram (Strict Mode)</div>
+            <div class="wv-desc">Full-page overlay replaces the content. Quranic verse displayed. Page cannot be accessed without changing guidance level.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="whisper-features">
+        <div class="wf-item">
+          <div class="wf-num">1</div>
+          <div>
+            <div class="wf-title">Real-time Classification</div>
+            <div class="wf-desc">Every page analysed against gambling (maysir), interest (riba), intoxicants (khamr), explicit content, and pork-derived ingredients using a local rule engine + Falah OS backend API.</div>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-num">2</div>
+          <div>
+            <div class="wf-title">Quranic Evidence Cards</div>
+            <div class="wf-desc">Every verdict surfaces the exact Quranic ayah or hadith behind it — in Arabic with translation. Not opinion. Source-referenced Islamic scholarship.</div>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-num">3</div>
+          <div>
+            <div class="wf-title">Halal Alternatives Engine</div>
+            <div class="wf-desc">When a page is flagged, Falah suggests verified halal alternatives that serve the same need — financial products, food, entertainment, and more.</div>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-num">4</div>
+          <div>
+            <div class="wf-title">Three Guidance Levels</div>
+            <div class="wf-desc"><strong style="color:var(--text-1);">Advisory</strong> — observe and inform. <strong style="color:var(--text-1);">Caution</strong> — warn and require acknowledgement. <strong style="color:var(--text-1);">Strict</strong> — block haram outright. Family-configurable.</div>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-num">5</div>
+          <div>
+            <div class="wf-title">Offline Local Fallback</div>
+            <div class="wf-desc">Even without internet, a local keyword classifier covers gambling, alcohol, riba, adult content, and pork keywords — guidance never goes dark.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOVEREIGN STACK ═══════════════════════════════════════════════════════ -->
+<section class="section" id="architecture">
+  <div class="container">
+    <div class="eyebrow">Core Architecture</div>
+    <h2 class="section-title">The <em>Sovereign Stack</em></h2>
+    <p class="section-sub">
+      Seven foundational primitives, containerised and composable.
+      Like organs in a body — each independent, each essential, each working in concert.
+    </p>
+
+    <div class="stack-grid">
+
+      <div class="stack-card">
+        <span class="sc-num">01 / IDENTITY</span>
+        <span class="sc-icon">🛡️</span>
+        <div class="sc-name">Ummah ID</div>
+        <p class="sc-desc">Zero-knowledge identity verification. Your device links to a verified sovereign citizen without a single byte of PII ever leaving your control.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">ZK-Proof</span><span class="sc-tag">Decentralized</span><span class="sc-tag">No PII</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">02 / WALLET</span>
+        <span class="sc-icon">⚡</span>
+        <div class="sc-name">Core Ledger</div>
+        <p class="sc-desc">High-throughput, stateless routing engine. Create wallets, check balances, and initiate atomic transfers at Category A speed.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">Atomic Swaps</span><span class="sc-tag">Stateless</span><span class="sc-tag">Category A</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">03 / CONTRACTS</span>
+        <span class="sc-icon">📜</span>
+        <div class="sc-name">RAMZ Engine</div>
+        <p class="sc-desc">Pre-audited Shariah contracts as code. Murabaha, Qard al-Hasan, Mudarabah, Salam, Takaful, Sukuk, and Zakat — plug-and-play primitives any developer can deploy.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">Murabaha</span><span class="sc-tag">Takaful</span><span class="sc-tag">Sukuk</span><span class="sc-tag">Zakat</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">04 / HALAL TOKENS</span>
+        <span class="sc-icon">🏆</span>
+        <div class="sc-name">Token Engine</div>
+        <p class="sc-desc">Blockchain-native halal certification. HCT, HPT, and HLT tokens provide immutable, cross-border, verifiable halal status for any product in any supply chain.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">HCT</span><span class="sc-tag">HPT</span><span class="sc-tag">HLT</span><span class="sc-tag">MRA</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">05 / EVENTS</span>
+        <span class="sc-icon">📡</span>
+        <div class="sc-name">Event Bus</div>
+        <p class="sc-desc">Real-time event streaming across the sovereign network. Every transaction, every state change — auditable, replayable, sovereign.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">Real-time</span><span class="sc-tag">Auditable</span><span class="sc-tag">Replay</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">06 / GATEWAY</span>
+        <span class="sc-icon">🔗</span>
+        <div class="sc-name">iBaaS Layer</div>
+        <p class="sc-desc">200+ pre-built connectors to SaaS, ERP, DB, and IoT systems. The universal adapter between Falah OS and the world's existing infrastructure.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">200+ Connectors</span><span class="sc-tag">IoT</span><span class="sc-tag">ERP</span>
+        </div>
+      </div>
+
+      <div class="stack-card">
+        <span class="sc-num">07 / SANDBOX</span>
+        <span class="sc-icon">🧪</span>
+        <div class="sc-name">Mock-Net</div>
+        <p class="sc-desc">A complete digital twin of the Falah economy. Develop and test in a synthetic environment before touching mainnet. Your flight simulator.</p>
+        <div class="sc-tags">
+          <span class="sc-tag">Digital Twin</span><span class="sc-tag">Chaos Testing</span><span class="sc-tag">Dev Namespace</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRANSACTION PIPELINE ═════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Transaction Pipeline</div>
+    <h2 class="section-title">How a Sovereign <em>Transaction Flows</em></h2>
+    <p class="section-sub">
+      Think of it as an assembly line for trust. Every transaction passes through multiple
+      checkpoints — each one adding a layer of compliance, privacy, and sovereignty.
+    </p>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="ps-num">01</div>
+        <div class="ps-info">
+          <div class="ps-name">Category A — Global Router</div>
+          <div class="ps-desc">Stateless execution layer · High throughput entry point</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">Stateless</span><span class="ps-tag">High Throughput</span>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">02</div>
+        <div class="ps-info">
+          <div class="ps-name">RAMZ Coprocessor</div>
+          <div class="ps-desc">Zero-knowledge audit · Shariah compliance check · Contract validation</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">ZK Audit</span><span class="ps-tag">Shariah Check</span>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">03</div>
+        <div class="ps-info">
+          <div class="ps-name">Halal Token Verification</div>
+          <div class="ps-desc">HCT / HPT / HLT on-chain status validated · MRA cross-border rules applied</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">HCT Verify</span><span class="ps-tag">MRA Rules</span><span class="ps-tag">JAKIM · BPJPH</span>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">04</div>
+        <div class="ps-info">
+          <div class="ps-name">Category B — Sovereign Vault</div>
+          <div class="ps-desc">National Data Registry · Encrypted · On-soil storage</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">Encrypted</span><span class="ps-tag">On-soil</span>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">05</div>
+        <div class="ps-info">
+          <div class="ps-name">SovereignKit SDK Bridge</div>
+          <div class="ps-desc">Secure bridge to developer applications via iBaaS layer</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">SDK</span><span class="ps-tag">iBaaS</span>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="ps-num">06</div>
+        <div class="ps-info">
+          <div class="ps-name">Governance & Codex</div>
+          <div class="ps-desc">Versioning · Revision chamber · Immutable audit trail</div>
+        </div>
+        <div class="ps-tags">
+          <span class="ps-tag">Immutable</span><span class="ps-tag">Auditable</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROTOCOL FEE ══════════════════════════════════════════════════════════ -->
+<section class="section" id="protocol">
+  <div class="container">
+    <div class="eyebrow">The Falah Protocol</div>
+
+    <div class="protocol-layout">
+      <div class="protocol-visual">
+        <h2 class="section-title" style="margin-bottom:24px;">Against the <em>30% Tax</em></h2>
+        <div class="pv-bar">
+          <div class="pv-bar-label">Falah Protocol — Developer share</div>
+          <div class="pv-bar-track"><div class="pv-bar-fill falah"></div></div>
+          <div class="pv-bar-val">98.5% to developers</div>
+        </div>
+        <div class="pv-bar">
+          <div class="pv-bar-label">App Store / Play Store — Developer share</div>
+          <div class="pv-bar-track"><div class="pv-bar-fill others"></div></div>
+          <div class="pv-bar-val" style="color:var(--ruby);">70% to developers</div>
+        </div>
+        <div style="margin-top:16px; padding:16px 18px; background:var(--bg-surface); border:1px solid var(--border-s); border-radius:10px; font-size:12px; color:var(--text-2); line-height:1.65;">
+          The 1.5% Falah protocol fee funds network security, RAMZ audits, HCT certification infrastructure, and the Ummah development fund. Encoded in the smart contract — not a promise, code.
+        </div>
+      </div>
+
+      <div class="protocol-copy">
+        <div class="pc-big">98.5%</div>
+        <div class="pc-label">goes to the developer</div>
+        <div class="pc-body">
+          While others extract 30% from every transaction, the Falah Protocol enforces fair compensation by design — <strong>encoded directly into the smart contract layer.</strong>
+          <br><br>
+          Not a policy. Not a promise. <strong>Code.</strong>
+          <br><br>
+          This is what it means to build a sovereign economy: the rules of the market are set by the community, enforced by mathematics, and cannot be changed by any corporation, government, or platform.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ISLAMIC FINANCE (expanded) ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">RAMZ Engine — Islamic Finance</div>
+    <h2 class="section-title">Shariah <em>Contracts as Code</em></h2>
+    <p class="section-sub">
+      Six pre-audited Islamic finance contract primitives, deployable by any developer.
+      No Fiqh scholarship required — the compliance is already encoded.
+    </p>
+
+    <div class="finance-grid">
+      <div class="fin-card">
+        <span class="fin-icon">🏦</span>
+        <div class="fin-name">Murabaha</div>
+        <div class="fin-arabic">المرابحة</div>
+        <p class="fin-desc">Cost-plus working capital financing. The bank buys and resells at a disclosed markup. Zero riba, full transparency.</p>
+      </div>
+      <div class="fin-card">
+        <span class="fin-icon">🌾</span>
+        <div class="fin-name">Salam</div>
+        <div class="fin-arabic">السلم</div>
+        <p class="fin-desc">Pre-order contracts for agricultural and commodity goods. Payment now, delivery later — Shariah-compliant futures.</p>
+      </div>
+      <div class="fin-card">
+        <span class="fin-icon">🛡️</span>
+        <div class="fin-name">Takaful</div>
+        <div class="fin-arabic">التكافل</div>
+        <p class="fin-desc">Mutual protection and cooperative insurance. Contributions pooled and shared — not gambled or invested in haram assets.</p>
+      </div>
+      <div class="fin-card">
+        <span class="fin-icon">📜</span>
+        <div class="fin-name">Sukuk</div>
+        <div class="fin-arabic">الصكوك</div>
+        <p class="fin-desc">Tokenised Islamic bonds for supply-chain financing. Asset-backed, Shariah-screened, and tradeable on the Falah ledger.</p>
+      </div>
+      <div class="fin-card">
+        <span class="fin-icon">🤲</span>
+        <div class="fin-name">Qard al-Hasan</div>
+        <div class="fin-arabic">القرض الحسن</div>
+        <p class="fin-desc">Benevolent interest-free loans. The foundation of Islamic solidarity — no profit, no interest, pure benefit.</p>
+      </div>
+      <div class="fin-card">
+        <span class="fin-icon">💰</span>
+        <div class="fin-name">Mudarabah</div>
+        <div class="fin-arabic">المضاربة</div>
+        <p class="fin-desc">Profit-sharing partnership contracts. Capital provider and entrepreneur share returns — risk and reward aligned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ECOSYSTEM ════════════════════════════════════════════════════════════ -->
+<section class="section" id="ecosystem">
+  <div class="container">
+    <div class="eyebrow">The Ecosystem</div>
+    <h2 class="section-title">Built for <em>Everyone</em></h2>
+    <p class="section-sub">
+      From the individual Muslim consumer scanning a QR code at a supermarket to enterprise institutions
+      settling cross-border halal trade — Falah OS is the infrastructure layer for all of them.
+    </p>
+
+    <div class="ecosystem-grid">
+      <div class="eco-card">
+        <span class="eco-icon">👩‍💻</span>
+        <div class="eco-name">Developers</div>
+        <p class="eco-desc">SDKs in TypeScript, Python, Go, Swift. Build Shariah-compliant apps without being a Fiqh scholar. RAMZ contracts, HCT APIs, Mock-Net sandbox.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-icon">🏪</span>
+        <div class="eco-name">Merchants</div>
+        <p class="eco-desc">From the Nasi Lemak seller to enterprise. HCT product tokens, QR-based halal verification, iStore listing, B2B settlements, Murabaha financing.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-icon">🏙️</span>
+        <div class="eco-name">Citizens</div>
+        <p class="eco-desc">Sovereign digital identity. Halal-verified shopping. Prayer guidance in your browser. Your wallet. Your data. Your economy. Always under your control.</p>
+      </div>
+      <div class="eco-card">
+        <span class="eco-icon">🏛️</span>
+        <div class="eco-name">Regulators</div>
+        <p class="eco-desc">Regulator nodes with full real-time visibility. HCT issuance authority, revocation rights, cross-border MRA rule encoding, read-only blockchain access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══════════════════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <svg class="cta-geo" viewBox="0 0 600 600">
+    <polygon points="300,30 570,165 570,435 300,570 30,435 30,165" fill="none" stroke="white" stroke-width="1"/>
+    <polygon points="300,80 520,195 520,405 300,520 80,405 80,195" fill="none" stroke="white" stroke-width="0.7"/>
+    <circle cx="300" cy="300" r="220" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="300" cy="300" r="170" fill="none" stroke="white" stroke-width="0.4"/>
+    <line x1="300" y1="30" x2="300" y2="570" stroke="white" stroke-width="0.3"/>
+    <line x1="30" y1="300" x2="570" y2="300" stroke="white" stroke-width="0.3"/>
+  </svg>
+
+  <div class="container" style="position:relative; z-index:1;">
+    <span class="cta-arabic">الفَوْزُ لِلأُمَّة</span>
+    <h2 class="cta-title">The <em>Forge</em> is Open</h2>
+    <p class="cta-sub">
+      Join the first wave of developers building the sovereign digital economy.
+      Access the Mock-Net sandbox. Deploy your first Shariah-compliant app.
+    </p>
+    <div class="cta-btns">
+      <a href="https://dev.falah-os.com" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Access Developer Portal
+      </a>
+      <a href="https://store.falah-os.com" class="btn btn-ghost">
+        Browse iStore™ →
+      </a>
+      <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases" class="btn btn-ghost">
+        Download Apps →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="fb-logo">
+          <svg width="26" height="26" viewBox="0 0 40 40" fill="none" style="filter:drop-shadow(0 0 6px rgba(201,152,60,0.35));">
+            <path d="M20 4L26 10H28V30H12V10H14L20 4Z" fill="rgba(201,152,60,0.2)" stroke="#c9983c" stroke-width="1.5"/>
+            <circle cx="20" cy="19" r="4" fill="#c9983c" opacity="0.9"/>
+          </svg>
+          <span class="fb-name">FALAH OS™</span>
+        </div>
+        <p class="fb-tagline">The world's first Shariah-native sovereign digital economy. Built on sovereign infrastructure. Owned by the Ummah.</p>
+        <span class="fb-arabic">الفَلَاحُ لِلأُمَّة — نحو اقتصاد رقمي سيادي</span>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Products</div>
+        <a href="#tokens">Halal Token Engine</a>
+        <a href="#browser">Falah Browser</a>
+        <a href="#browser">Falah Extension</a>
+        <a href="https://store.falah-os.com">iStore™</a>
+        <a href="#whisper">Falah's Whisper</a>
+        <a href="#architecture">RAMZ Engine</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Developers</div>
+        <a href="https://dev.falah-os.com">Developer Portal</a>
+        <a href="https://dev.falah-os.com">API Docs</a>
+        <a href="https://dev.falah-os.com">Mock-Net Sandbox</a>
+        <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE">GitHub</a>
+        <a href="#architecture">Architecture</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="https://admin.falah-os.com">Admin Portal</a>
+        <a href="https://dev.falah-os.com">Regulator Access</a>
+        <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/releases">Download Apps</a>
+        <a href="https://github.com/Falah-Consultancy-Limited/FalahBrowserCE/issues">Bug Reports</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Falah Consultancy Ltd. All rights reserved.</div>
+      <div style="display:flex; gap:12px; align-items:center;">
+        <span class="fb-version">v1.2 Sovereign Architecture · HCT Engine v1.0.1</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Nav scroll effect ──────────────────────────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 40
+    ? 'rgba(13,13,16,0.97)'
+    : 'rgba(13,13,16,0.88)';
+}, { passive: true });
+
+// ── Smooth scroll for anchor links ─────────────────────────────────────────
+document.querySelectorAll("a[href^='#']").forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── Intersection observer for animate-in ──────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.stack-card, .token-card, .fin-card, .eco-card, .wv-item, .bs-card, .pipeline-step').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
